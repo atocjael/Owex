@@ -1,0 +1,5 @@
+.split-pane:horizontal > * > .split-pane-divider{
+	-fx-border-color: transparent -fx-box-border transparent #BBBBBB;
+	-fx-background-color: transparent, -fx-inner-border-horiontal;
+	-fx-background-insets: 0, 0 1 0 1;
+ }

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox prefHeight="2000.0" prefWidth="2000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <Pane prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: #0CA2E0;" styleClass="#e70707" VBox.vgrow="ALWAYS">
+         <children>
+            <Line endX="80.0" fill="WHITE" layoutX="766.0" layoutY="868.0" rotate="-55.0" scaleX="7.0" scaleY="4.0" startX="-80.0" stroke="WHITE" strokeLineCap="BUTT" strokeMiterLimit="20.0" strokeWidth="100.0" />
+            <Polygon fill="WHITE" layoutX="350.0" layoutY="1475.0" rotate="-145.0" scaleX="4.0" scaleY="3.0" stroke="WHITE" strokeType="INSIDE">
+               <points>
+                  <Double fx:value="-50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="50.0" />
+                  <Double fx:value="40.0" />
+                  <Double fx:value="0.0" />
+                  <Double fx:value="-60.0" />
+               </points>
+            </Polygon>
+            <Line endX="110.0" fill="#0ca2e0" layoutX="678.0" layoutY="989.0" rotate="-55.0" scaleX="7.0" scaleY="4.0" startX="-100.0" stroke="#0ca2e0" strokeWidth="2.0" />
+            <Line endX="140.0" fill="#0ca2e0" layoutX="800.0" layoutY="1000.0" rotate="-55.0" scaleX="6.0" startX="-140.0" stroke="#0ca2e0" strokeWidth="4.0" />
+            <Line endX="110.0" fill="#0ca2e0" layoutX="550.0" layoutY="1000.0" rotate="-55.0" scaleX="8.0" scaleY="4.0" startX="-110.0" stroke="#0ca2e0" />
+            <CubicCurve controlX1="-50.0" controlX2="50.0" controlY1="-100.0" controlY2="100.0" endX="150.0" fill="#1f93ff00" layoutX="1174.0" layoutY="1655.0" scaleX="5.0" scaleY="4.0" scaleZ="3.0" startX="-150.0" stroke="WHITE" strokeWidth="15.0" />
+         </children>
+      </Pane>
+   </children>
+</VBox>

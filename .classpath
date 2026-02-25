@@ -8,7 +8,7 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/JavaFx"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SpireDoc"/>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-j-8.0.31.jar"/>
+	<classpathentry kind="lib" path="C:/ConnectorJ/mysql-connector-j-9.3.0.jar"/>
 	<classpathentry kind="lib" path="C:/Spire.Doc_10.6.6/lib/Spire.Doc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

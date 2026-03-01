@@ -1744,7 +1744,7 @@ public class AppHomeController {
 
       try {
          Statement stm = conn.createStatement();
-         ResultSet rst = stm.executeQuery("SELECT DISTINCT monthYear from register");
+         ResultSet rst = stm.executeQuery("SELECT DISTINCT monthYear FROM register ORDER BY monthYear DESC LIMIT 5");
 
          while(rst.next()) {
             periodes.add(rst.getString("monthYear"));

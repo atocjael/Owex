@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="500.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.view.HelpController">
+   <children>
+      <Accordion fx:id="helpAcc" VBox.vgrow="ALWAYS">
+        <panes>
+          <TitledPane animated="false" text="Use SIS - List">
+               <content>
+                  <ScrollPane fx:id="sisPane">
+                     <content>
+                        <Label fx:id="sisLabel" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding></Label>
+                     </content>
+                  </ScrollPane>
+               </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Add - Modify - Delete">
+               <content>
+                  <ScrollPane fx:id="dataPane" prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <Label fx:id="dataLabel" wrapText="true" />
+                     </content>
+                  </ScrollPane>
+               </content>
+          </TitledPane>
+          <TitledPane animated="false" text="Comment declarer ">
+               <content>
+                  <ScrollPane fx:id="creancePane">
+                     <content>
+                        <Label fx:id="creanceLabel" wrapText="true" />
+                     </content>
+                  </ScrollPane>
+               </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
+   </children>
+</VBox>

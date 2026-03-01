@@ -1,5 +1,16 @@
 package app;
 
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.spire.doc.Document;
+import com.spire.doc.FileFormat;
+
 import app.model.Drug;
 import app.model.Entry;
 import app.tools.Tools;
@@ -22,15 +33,6 @@ import app.view.RegistrationScreenController;
 import app.view.ServerClientController;
 import app.view.UserAdderController;
 import app.view.UserDeleterController;
-import com.spire.doc.Document;
-import com.spire.doc.FileFormat;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import javafx.application.Application;
 import javafx.application.Preloader.ProgressNotification;
 import javafx.collections.FXCollections;
@@ -44,10 +46,10 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
+import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Modality;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
-import javafx.stage.FileChooser.ExtensionFilter;
 
 public class ExMain extends Application {
    private Scene scenePrincipale;
@@ -696,4 +698,24 @@ public class ExMain extends Application {
       }
 
    }
+   
+   public void showHelp() {
+	      FXMLLoader loader = new FXMLLoader();
+	      loader.setLocation(ExMain.class.getResource("view/Help.fxml"));
+
+	      try {
+	         VBox hPane = (VBox)loader.load();
+	         Scene hScene = new Scene(hPane);
+	         Stage stage = new Stage();
+	         stage.setScene(hScene);
+	         stage.initOwner(this.stagePrincipale);
+	         stage.setTitle("Owex-R - Help");
+	         stage.showAndWait();
+	      } catch (IOException var6) {
+	         var6.printStackTrace();
+	      }
+
+	   }
+   
+   
 }

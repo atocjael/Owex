@@ -2285,6 +2285,11 @@ public class AppHomeController {
       }
 
    }
+   
+   @FXML
+   public void showHelp() {
+	   this.main.showHelp();
+   }
 
    public void createOneDelegueRapport(String del, ArrayList<ArrayList<String>> drug_total) {
       String var10000 = del.toUpperCase();

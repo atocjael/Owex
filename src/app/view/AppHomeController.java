@@ -2022,9 +2022,10 @@ public class AppHomeController {
 
    }
    
-   public String[][] readFromXls() {
+   public ArrayList<String[]> readFromXls() {
 	   
        final File file = this.main.chooseFile("xls");
+       ArrayList<String[]> idsDates= new ArrayList<String[]>();
        
        if(file!=null) {
     	   
@@ -2046,14 +2047,14 @@ public class AppHomeController {
     	   
         	   		sourceRange.copy(destRange);
         	   		
-        	   		destSheet.getCellRange("A:A").setNumberFormat("dd/mm/yyyy");
+        	   		destSheet.getCellRange("C:C").setNumberFormat("dd/mm/yyyy");
     	   
         	   		wb.saveToFile(file.getAbsolutePath(), ExcelVersion.Version2013);
     	   
         	   		CellRange locatedRange = wb.getWorksheets().get(1).getAllocatedRange();
         	   		
-        	   		String[] ids = new String[locatedRange.getRowCount()];
-        	   		String[] dates = new String[locatedRange.getRowCount()];
+        	   		String[] ids = new String[locatedRange.getRowCount()-2];
+        	   		String[] dates = new String[locatedRange.getRowCount()-2];
         	   		
         	   		
     	   
@@ -2068,9 +2069,8 @@ public class AppHomeController {
         	   		
         	   		success=true;
         	   		
-        	   		String [][] idsDates= {ids, dates};
-        	   		
-        	   		return idsDates;
+        	   		idsDates.add(ids);
+        	   		idsDates.add(dates);
     	   
         	   	}catch (Exception e) {
         	   		System.err.println("Erreur : Le fichier est occupé ou inaccessible.");
@@ -2091,6 +2091,7 @@ public class AppHomeController {
         	   	}
            }
        }
+       return idsDates;
    }
    
    public static void closeExcel() {
@@ -2205,49 +2206,54 @@ public class AppHomeController {
 	   this.main.showPeriodeChoser();
 	   if (this.main.getIsOperativePeriodeSet()) {
 
-	      String[][] idsDates= this.readFromXls();
+	      ArrayList<String[]> idsDates= this.readFromXls();
+	      
+	      if(!idsDates.isEmpty()) {
+	    	  Thread thread = new Thread() {
+	 	         public void run() {
+	 	            String[] textSplit = idsDates.get(0);
+	 	            String[] dateSplit = idsDates.get(1);
+	 	            
+	 	            
+	 	            ArrayList<ArrayList<String>> notF = AppHomeController.this.verifyIfRegistered(textSplit, dateSplit, AppHomeController.this.main.getOperativePeriode());
+	 	                  
+	 	            if (notF.size() > 0) {
+	 	               String filename = Tools.creerDocument(AppHomeController.this.main.getPseudo(), "RAPPORTS", "notfoundids");
+	 	                     
+	 	               Document doc = new Document();
+	 	               Section section = doc.addSection();
+	 	               section.getPageSetup().setOrientation(PageOrientation.Landscape);
+	 	               section.addColumn(100, 20);
+	 	               section.addColumn(100, 20);
+	 	               section.addColumn(100, 20);
+	 	                              
+	 	               Paragraph premier = section.addParagraph();
+	 	               premier.appendText("IDS PRESENTS SUR LA LISTE DU SIS - ADMIN NON ENREGISTRE DANS OWEX");
+	 	               premier.appendBreak(BreakType.Line_Break);
+	 	               premier.appendBreak(BreakType.Line_Break);
 
-	      Thread thread = new Thread() {
-	         public void run() {
-	            String[] textSplit = idsDates[0];
-	            String[] dateSplit = idsDates[1];
-	            
-	            ArrayList<ArrayList<String>> notF = AppHomeController.this.verifyIfRegistered(textSplit, dateSplit, AppHomeController.this.main.getOperativePeriode());
-	                  
-	            if (notF.size() > 0) {
-	               String filename = Tools.creerDocument(AppHomeController.this.main.getPseudo(), "RAPPORTS", "notfoundids");
-	                     
-	               Document doc = new Document();
-	               Section section = doc.addSection();
-	               section.getPageSetup().setOrientation(PageOrientation.Landscape);
-	               section.addColumn(100, 20);
-	               section.addColumn(100, 20);
-	               section.addColumn(100, 20);
-	                              
-	               Paragraph premier = section.addParagraph();
-	               premier.appendText("IDS PRESENTS SUR LA LISTE DU SIS - ADMIN NON ENREGISTRE DANS OWEX");
-	               premier.appendBreak(BreakType.Line_Break);
-	               premier.appendBreak(BreakType.Line_Break);
+	 	               for(int i = 0; i < notF.size(); ++i) {
+	 	                  String var10001 = (String)((ArrayList<String>)notF.get(i)).get(0);
+	 	                  premier.appendText(var10001 + "    |     " + (String)((ArrayList<String>)notF.get(i)).get(1));
+	 	                  premier.appendBreak(BreakType.Line_Break);
+	 	               }
 
-	               for(int i = 0; i < notF.size(); ++i) {
-	                  String var10001 = (String)((ArrayList<String>)notF.get(i)).get(0);
-	                  premier.appendText(var10001 + "    |     " + (String)((ArrayList<String>)notF.get(i)).get(1));
-	                  premier.appendBreak(BreakType.Line_Break);
-	               }
+	 	               doc.saveToFile(filename, FileFormat.Docx_2013);
+	 	            }
+	 	                  
+	 	            Platform.runLater(() -> {
+	 	               AppHomeController.this.removeIndicator("Le rapport a été créé avec succès!");
+	 	            });
+	 	                   
+	 	         } //run
 
-	               doc.saveToFile(filename, FileFormat.Docx_2013);
-	            }
-	                  
-	            Platform.runLater(() -> {
-	               AppHomeController.this.removeIndicator("Le rapport a été créé avec succès!");
-	            });
-	                   
-	         } //run
+	 	      }; //thread
 
-	      }; //thread
+	 	      this.showIndicator();
+	 	      thread.start();
+	      }
 
-	      this.showIndicator();
-	      thread.start();
+	      
 	   }
 
 	}
@@ -2497,7 +2503,7 @@ public class AppHomeController {
    public int getLongestIdLength(String[] ids) {
 	   int length=0;
 	   for(String str: ids) {
-		   if(str.length()>length) {
+		   if(str!=null && str.length()>length) {
 			   length=str.length();
 		   }
 	   }

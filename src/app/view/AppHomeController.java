@@ -2022,9 +2022,9 @@ public class AppHomeController {
 
    }
    
-   public ArrayList<String[]> readFromXls() {
+   public ArrayList<String[]> readFromXls(File file) {
 	   
-       final File file = this.main.chooseFile("xls");
+       
        ArrayList<String[]> idsDates= new ArrayList<String[]>();
        
        if(file!=null) {
@@ -2046,10 +2046,9 @@ public class AppHomeController {
         	   		CellRange destRange = destSheet.getCellRange(1, 1);
     	   
         	   		sourceRange.copy(destRange);
-        	   		
-        	   		destSheet.getCellRange("C:C").setNumberFormat("dd/mm/yyyy");
     	   
         	   		wb.saveToFile(file.getAbsolutePath(), ExcelVersion.Version2013);
+        	   		
     	   
         	   		CellRange locatedRange = wb.getWorksheets().get(1).getAllocatedRange();
         	   		
@@ -2061,10 +2060,7 @@ public class AppHomeController {
         	   		for(int i=2; i<locatedRange.getRowCount(); i++) {
         	   			int a=i-2;
         	   			ids[a]=locatedRange.get(i,4).getValue();
-        	   			dates[a]=locatedRange.get(i,3).getValue();
-        	   			
-        	   			
-        	   			System.out.println(locatedRange.get(i,4).getValue()+"    |     "+locatedRange.get(i,3).getValue());
+        	   			dates[a]=locatedRange.get(i,3).getValue().substring(0, 10);
         	   		}
         	   		
         	   		success=true;
@@ -2113,104 +2109,14 @@ public class AppHomeController {
 	    }
 	}
 
-   
-   
-   
-   
-
-   /*public void getNotRegisteredId() {
-      this.main.showPeriodeChoser();
-      if (this.main.getIsOperativePeriodeSet()) {
-         this.main.chooseFile();
-         final File file = this.main.getChosenFile();
-         if (file != null) {
-            Thread thread = new Thread() {
-               public void run() {
-                  try {
-                     FileReader fr = new FileReader(file);
-                     Throwable var2 = null;
-                     
-
-                     try {
-                        BufferedReader br = new BufferedReader(fr);
-
-                        try {
-                           String line = br.readLine();
-
-                           String text;
-                           for(text = ""; line != null; line = br.readLine()) {
-                              text = text + line;
-                           }
-
-                           br.close();
-                           String[] separeIdDate = text.split("/");
-                           String ids = separeIdDate[0];
-                           
-                           String dates = separeIdDate[1];
-                           String[] textSplit = ids.split(",");
-                           String[] dateSplit = dates.split(",");
-                           ArrayList<ArrayList<String>> notF = AppHomeController.this.verifyIfRegistered(textSplit, dateSplit, AppHomeController.this.main.getOperativePeriode());
-                           if (notF.size() > 0) {
-                              String filename = Tools.creerDocument(AppHomeController.this.main.getPseudo(), "RAPPORTS", "notfoundids");
-                              Document doc = new Document();
-                              Section section = doc.addSection();
-                              section.getPageSetup().setOrientation(PageOrientation.Landscape);
-                              section.addColumn(100, 20);
-                              section.addColumn(100, 20);
-                              section.addColumn(100, 20);
-                              
-                              Paragraph premier = section.addParagraph();
-                              premier.appendText("IDS PRESENTS SUR LA LISTE DU SIS - ADMIN NON ENREGISTRE DANS OWEX");
-                              premier.appendBreak(BreakType.Line_Break);
-                              premier.appendBreak(BreakType.Line_Break);
-
-                              for(int i = 0; i < notF.size(); ++i) {
-                                 String var10001 = (String)((ArrayList<String>)notF.get(i)).get(0);
-                                 premier.appendText(var10001 + "    |     " + (String)((ArrayList<String>)notF.get(i)).get(1));
-                                 premier.appendBreak(BreakType.Line_Break);
-                              }
-
-                              doc.saveToFile(filename, FileFormat.Docx_2013);
-                           }
-                        } finally {
-                           if (br != null) {
-                              br.close();
-                           }
-
-                        }
-                     } catch (Throwable var28) {
-                        if (var2 == null) {
-                           var2 = var28;
-                        } 
-
-                        //throw var2;
-                     }
-
-                     Platform.runLater(() -> {
-                        AppHomeController.this.removeIndicator("Le rapport a été créé avec succès!");
-                     });
-                  } catch (FileNotFoundException var29) {
-                     var29.printStackTrace();
-                  } 
-               }
-            };
-            this.showIndicator();
-            thread.start();
-         }
-      }
-
-   }*/
-   
-   
+ 
    public void getNotRegisteredId() {
 	   this.main.showPeriodeChoser();
 	   if (this.main.getIsOperativePeriodeSet()) {
-
-	      ArrayList<String[]> idsDates= this.readFromXls();
-	      
-	      if(!idsDates.isEmpty()) {
-	    	  Thread thread = new Thread() {
-	 	         public void run() {
+		   final File file = this.main.chooseFile("xls");
+		   Thread thread = new Thread() {
+	 	       public void run() {
+	 	        	ArrayList<String[]> idsDates= readFromXls(file);
 	 	            String[] textSplit = idsDates.get(0);
 	 	            String[] dateSplit = idsDates.get(1);
 	 	            
@@ -2252,10 +2158,6 @@ public class AppHomeController {
 	 	      this.showIndicator();
 	 	      thread.start();
 	      }
-
-	      
-	   }
-
 	}
 
    public ArrayList<ArrayList<String>> verifyIfRegistered(String[] ids, String[] dates, String date) {

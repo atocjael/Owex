@@ -1,22 +1,9 @@
 Pour utiliser la liste envoyer par SIS -Admin, procéder comme suit 
-I. Formattez les données 
-
-1. Ouvrez le fichier avec excel ou google sheets 
-2. Ouvrez un editeur de texte (ici "sublime  Text")
-3. Copier d'abord la colonne des identifiants dans excel (tableau du Sis)
-4. Coller dans l'éditeur de texte 
-5. Remplacer les retours à la ligne par des virgules. Pour le faire appuyer simultanément les touches CTRL et H et regarder en bas de l'ecran
-Taper \n  devant "Find"   et , devant Replace puis appuiyer sur "Replace All"
-6. Copiez la colonne des dates dans excel 
-7. Coller dans l'editeur de texte
-8. Répétez l'étape 5
-9. Remplacer les / des dates par des points. Fais comme l'étape 5 en ramplacant \n par / et , par .
-10. Separez les ids et les dates par un /    (Reperez la fins des ids et ecrivez /).
-11. Enregister le document sur ordi (CTRL S)
+I. Télecharger le document
 
 II. Utilisation des données 
 
 1. Dans l'application Owex , clickez sur l'onglet "Rapports" puis "Not Registered Ids"
 2. Choisser  la période correspondante
-3. L'application vous demande de choisir un fichier.  Choisissez le fichier que vous venez de créer à l'étape I. et attendez.
+3. L'application vous demande de choisir un fichier.  Choisissez le fichier que vous venez de télécharger à l'étape I. et attendez.
 4. Le rapport est disponible dans la partie gauche de l'application Owex.

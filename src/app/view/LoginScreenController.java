@@ -82,7 +82,7 @@ public class LoginScreenController {
                   this.exMain.getAppHomeController().giveTodayStatics();
                   this.exMain.getAppHomeController().getLogin().setText("Log out");
                   this.exMain.getAppHomeController().populateIolDirectory();
-                  this.exMain.getAppHomeController().readFromXls();
+                  //this.exMain.getAppHomeController().readFromXls();
                } else {
                   this.writeLoginError("Mot de passe incorrect");
                   this.password.setText("");

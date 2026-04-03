@@ -1,24 +1,6 @@
 /* Decompiler 1196ms, total 1940ms, lines 2136 */
 package app.view;
 
-import app.ExMain;
-import app.model.Entry;
-import app.tools.Tools;
-import com.spire.doc.AutoFitBehaviorType;
-import com.spire.doc.CellWidthType;
-import com.spire.doc.Document;
-import com.spire.doc.FileFormat;
-import com.spire.doc.Section;
-import com.spire.doc.Table;
-import com.spire.doc.TableRow;
-import com.spire.doc.documents.BreakType;
-import com.spire.doc.documents.HorizontalAlignment;
-import com.spire.doc.documents.PageOrientation;
-import com.spire.doc.documents.Paragraph;
-import com.spire.doc.documents.TableRowHeightType;
-import com.spire.doc.documents.UnderlineStyle;
-import com.spire.doc.documents.VerticalAlignment;
-import com.spire.doc.fields.TextRange;
 import java.awt.Desktop;
 import java.awt.print.PageFormat;
 import java.awt.print.Paper;
@@ -41,6 +23,31 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
+import com.spire.doc.AutoFitBehaviorType;
+import com.spire.doc.CellWidthType;
+import com.spire.doc.Document;
+import com.spire.doc.FileFormat;
+import com.spire.doc.Section;
+import com.spire.doc.Table;
+import com.spire.doc.TableRow;
+import com.spire.doc.documents.BreakType;
+import com.spire.doc.documents.HorizontalAlignment;
+import com.spire.doc.documents.PageOrientation;
+import com.spire.doc.documents.Paragraph;
+import com.spire.doc.documents.TableRowHeightType;
+import com.spire.doc.documents.UnderlineStyle;
+import com.spire.doc.documents.VerticalAlignment;
+import com.spire.doc.fields.TextRange;
+import com.spire.xls.CellRange;
+import com.spire.xls.ExcelVersion;
+import com.spire.xls.Workbook;
+import com.spire.xls.Worksheet;
+
+import app.ExMain;
+import app.model.Entry;
+import app.tools.Tools;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.value.ChangeListener;
@@ -2014,6 +2021,86 @@ public class AppHomeController {
       }
 
    }
+   
+   public void readFromXls() {
+	   
+       final File file = this.main.chooseFile("xls");
+       
+       if(file!=null) {
+    	   
+    	   boolean success = false;
+           int tentatives = 0;
+           int maxTentatives = 3;
+           
+           while (!success && tentatives < maxTentatives) {
+    	   
+        	   	try {
+        	   		Workbook wb = new Workbook();
+        	   		wb.loadFromFile(file.getAbsolutePath());
+        	   		Worksheet sourceSheet = wb.getWorksheets().get(0);
+        	   		Worksheet destSheet = wb.getWorksheets().get(1);
+    	   
+        	   		CellRange sourceRange = sourceSheet.getAllocatedRange();
+    	   
+        	   		CellRange destRange = destSheet.getCellRange(1, 1);
+    	   
+        	   		sourceRange.copy(destRange);
+    	   
+        	   		wb.saveToFile(file.getAbsolutePath(), ExcelVersion.Version2013);
+    	   
+        	   		CellRange locatedRange = wb.getWorksheets().get(1).getAllocatedRange();
+    	   
+    	   
+        	   		for(int i=2; i<locatedRange.getRowCount(); i++) {
+        	   			System.out.println(locatedRange.get(i,4).getValue()+"    |     "+locatedRange.get(i,3).getValue());
+        	   		}
+        	   		
+        	   		success=true;
+    	   
+        	   	}catch (Exception e) {
+        	   		System.err.println("Erreur : Le fichier est occupé ou inaccessible.");
+                    
+                    if (tentatives < maxTentatives) {
+                        closeExcel();
+                        
+                        try {
+                            System.out.println("Attente avant nouvel essai...");
+                            TimeUnit.SECONDS.sleep(2); 
+                        } catch (InterruptedException ie) {
+                            Thread.currentThread().interrupt();
+                        }
+                    } else {
+                        System.err.println("Échec final après " + maxTentatives + " tentatives.");
+                    }
+               
+        	   	}
+           }
+       }
+   }
+   
+   public static void closeExcel() {
+	    try {
+	        
+	        ProcessBuilder pb = new ProcessBuilder("taskkill", "/F", "/IM", "excel.exe", "/T");
+	        
+	        
+	        Process process = pb.start();
+	        int exitCode = process.waitFor();
+
+	        if (exitCode == 0) {
+	            System.out.println("Excel a été fermé de force.");
+	        } else {
+	            System.out.println("Excel n'était probablement pas ouvert (Code : " + exitCode + ").");
+	        }
+	    } catch (Exception ex) {
+	        System.err.println("Erreur lors de la fermeture d'Excel : " + ex.getMessage());
+	    }
+	}
+
+   
+   
+   
+   
 
    public void getNotRegisteredId() {
       this.main.showPeriodeChoser();

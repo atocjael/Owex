@@ -494,6 +494,18 @@ public class ExMain extends Application {
       filechooser.getExtensionFilters().add(new ExtensionFilter("Text Files", new String[]{"*.txt"}));
       this.chosenFile = filechooser.showOpenDialog(this.stagePrincipale);
    }
+   //"Excel Files", "xls", "xlsx"
+   public File chooseFile(String f) {
+	      FileChooser filechooser = new FileChooser();
+	      if(f=="xls") {
+	    	  filechooser.getExtensionFilters().add(new ExtensionFilter("Excel Files", new String[]{"*.xls", "*.xlsx"}));
+	      }else {
+	    	  filechooser.getExtensionFilters().add(new ExtensionFilter("Text Files", new String[]{"*.txt"})); 
+	      }
+	      
+	      return  filechooser.showOpenDialog(this.stagePrincipale);
+	   }
+ 
 
    public void showServerClientAdder() {
       FXMLLoader loader = new FXMLLoader();

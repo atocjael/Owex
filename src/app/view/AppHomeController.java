@@ -2060,7 +2060,7 @@ public class AppHomeController {
         	   		for(int i=2; i<locatedRange.getRowCount(); i++) {
         	   			int a=i-2;
         	   			ids[a]=locatedRange.get(i,4).getValue();
-        	   			dates[a]=locatedRange.get(i,3).getValue().substring(0, 10);
+        	   			dates[a]=locatedRange.get(i,3).getValue().trim().split(" ")[0];
         	   		}
         	   		
         	   		success=true;

@@ -19,7 +19,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.view.AppHomeController">
+<StackPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.view.AppHomeController">
    <children>
       <VBox maxHeight="1.7976931348623157E308">
          <children>
@@ -62,7 +62,7 @@
                   </Menu>
                   <Menu fx:id="protocols" mnemonicParsing="false" text="Protocols">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Fond d'oeil" />
+                      <MenuItem mnemonicParsing="false" onAction="#showFundusProtocol" text="Fond d'oeil" />
                         <MenuItem mnemonicParsing="false" text="B-scan" />
                     </items>
                   </Menu>

@@ -6,3 +6,7 @@ Lamilar dot sign / Small greyish dots at the bottom of the optic cup.
 Notching / Focal, localized loss of the neuroretinal rim. - A "bite-like" defect or a notch in the rim localized at Inferior-temporal or superior-temporal poles.
 Zone Alpha / Irregular pigmentation of the RPE at the outer periphery of the optic disc.- (dark and light mottling of the RPE).
 Beta zone / A region of complete atrophy of the Retinal Pigment Epithelium (RPE) and the choriocapillaris. It sits inside Zone Alpha, touching the margin of the optic disc
+RFNL defect / RNFL defects appear as darker areas (black or dark grey) compared to the surrounding healthy tissue.They often take the form of a "wedge" or "slit" that starts at the edge of the optic nerve and widens as it moves outward.
+Disc hemorrhage/ It typically looks like a tiny red splinter, flame, or streak at the edge of the optic nerve head (the disc).  It is most frequently found in the infero-temporal or supero-temporal sectors.
+Disc neovascularization / Unlike a simple bleed, NVD looks like a delicate, disorganized "frond" or meshwork of tiny, loops of vessels.
+ISNT rule / In a healthy eye, the thickness of the neuroretinal rim (the pinkish tissue of the optic disc) follows a specific hierarchy from thickest to thinnest: I – Inferior (Thickest) S – Superior N – Nasal T – Temporal (Thinnest)

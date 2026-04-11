@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
@@ -14,14 +11,15 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="600.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="600.0" prefWidth="820.0">
          <center>
@@ -72,7 +70,6 @@
                                     <RadioButton mnemonicParsing="false" text="Large" />
                                     <Label text="Margins" />
                                     <RadioButton mnemonicParsing="false" text="Sharp and well-defined" />
-                                    <CheckBox mnemonicParsing="false" text="CheckBox" />
                                     <RadioButton mnemonicParsing="false" text="Hazy" />
                                     <RadioButton mnemonicParsing="false" text="Elevated" />
                                     <Label text=" Neuro retinal rim color" />
@@ -102,21 +99,130 @@
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                  </padding>
                               </VBox>
-                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                              <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" stylesheets="@../sources/grid.css">
                                  <children>
                                     <Label text="Others signs" />
-                                    <CheckBox mnemonicParsing="false" text="Defects of RFNL  (Red free)" />
-                                    <CheckBox mnemonicParsing="false" text="Undermining of vessels " />
-                                    <CheckBox mnemonicParsing="false" text="Baring of vessels" />
-                                    <CheckBox mnemonicParsing="false" text="Nasal displacement" />
-                                    <CheckBox mnemonicParsing="false" text="Bayoneting sign" />
-                                    <CheckBox mnemonicParsing="false" text="Laminar dot sign" />
-                                    <CheckBox mnemonicParsing="false" text="Beta zone" />
-                                    <CheckBox mnemonicParsing="false" text="Alpha zone" />
-                                    <CheckBox mnemonicParsing="false" text="Disc hemorrage" />
-                                    <CheckBox mnemonicParsing="false" text="ISNT Rule  not respected" />
-                                    <CheckBox mnemonicParsing="false" text="Notching" />
-                                    <CheckBox mnemonicParsing="false" text="Neovascularisation on the disc" />
+                                    <CheckBox mnemonicParsing="false" text="Defects of RFNL  (Red free)">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="RNFL defects appear as darker areas (black or dark grey) compared to the surrounding healthy tissue.They often take the form of a &quot;wedge&quot; or &quot;slit&quot; that starts at the edge of the optic nerve and widens as it moves outward." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Undermining of vessels ">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="The excavation (cup) doesn't just go down; it eats away at the sides underneath the neuroretinal rim. Imagine a cliff where the ocean has eroded the base. The top of the cliff now &quot;overhangs&quot; a hollow space. That hollow space is the undermining." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Baring of vessels">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A vessel no longer touches the neural rim because the tissue underneath has eroded. It looks like it's &quot;floating&quot; over a space." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Nasal displacement">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="The movement of the central retinal vessels toward the nasal side (toward the nose) of the optic disc." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Bayoneting sign">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="As a vessel comes from the retina toward the center of the nerve, it reaches the edge of the cup and has to make a sharp, double turn to follow the new, hollowed-out shape of the nerve.The vessel appears to &quot;disappear&quot; under the overhanging rim and then reappears at the bottom of the cup, shifted to one side" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Laminar dot sign">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Small greyish dots at the bottom of the optic cup." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Beta zone">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A region of complete atrophy of the Retinal Pigment Epithelium (RPE) and the choriocapillaris. It sits inside Zone Alpha, touching the margin of the optic disc" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Alpha zone">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Irregular pigmentation of the RPE at the outer periphery of the optic disc.- (dark and light mottling of the RPE)." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Disc hemorrage">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="t typically looks like a tiny red splinter, flame, or streak at the edge of the optic nerve head (the disc).  It is most frequently found in the infero-temporal or supero-temporal sectors." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="ISNT Rule  violation">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="In a healthy eye, the thickness of the neuroretinal rim (the pinkish tissue of the optic disc) follows a specific hierarchy from thickest to thinnest: I – Inferior (Thickest) S – Superior N – Nasal T – Temporal (Thinnest)" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Notching">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Focal, localized loss of the neuroretinal rim. - A &quot;bite-like&quot; defect or a notch in the rim localized at Inferior-temporal or superior-temporal poles." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Neovascularisation on the disc">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Unlike a simple bleed, NVD looks like a delicate, disorganized &quot;frond&quot; or meshwork of tiny, loops of vessels." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

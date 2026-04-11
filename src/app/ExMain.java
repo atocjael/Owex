@@ -730,4 +730,23 @@ public class ExMain extends Application {
 	   }
    
    
+   public void showFundusProtocol() {
+	      FXMLLoader loader = new FXMLLoader();
+	      loader.setLocation(ExMain.class.getResource("view/FundoscopyProtocol.fxml"));
+
+	      try {
+	         VBox hPane = (VBox)loader.load();
+	         Scene hScene = new Scene(hPane);
+	         Stage stage = new Stage();
+	         stage.setScene(hScene);
+	         stage.initOwner(this.stagePrincipale);
+	         stage.setTitle("Owex-R - Fundus Protocol");
+	         stage.showAndWait();
+	      } catch (IOException var6) {
+	         var6.printStackTrace();
+	      }
+
+	   }
+   
+   
 }

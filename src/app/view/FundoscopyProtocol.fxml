@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -19,11 +25,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="820.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane prefHeight="600.0" prefWidth="820.0">
+      <BorderPane prefHeight="550.0" prefWidth="700.0">
          <center>
-            <TabPane prefHeight="553.0" prefWidth="825.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <TabPane prefHeight="550.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
                   <Tab text="Patient Identification">
                      <content>
@@ -31,13 +37,14 @@
                            <children>
                               <GridPane>
                                 <columnConstraints>
-                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                 </columnConstraints>
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
@@ -46,9 +53,11 @@
                                     <Label text="Indication" GridPane.rowIndex="1" />
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <Label text="Gender" GridPane.rowIndex="2" />
-                                    <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <Label text="Age" GridPane.rowIndex="3" />
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <Label text="Eye" GridPane.rowIndex="4" />
+                                    <ComboBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                  </children>
                               </GridPane>
                            </children>
@@ -239,21 +248,51 @@
                               <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                  <children>
                                     <Label text="Physiological Landmarks &amp; Contour" />
-                                    <Label text="Foveal Reflex" />
+                                    <Label text="Foveal Reflex">
+                                       <tooltip>
+                                          <Tooltip text="A bright, glistening &quot;white dot.&quot;" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Label>
                                     <RadioButton mnemonicParsing="false" text="Present" />
                                     <RadioButton mnemonicParsing="false" text="Absent" />
                                     <Label text="Retinal Profile" />
                                     <RadioButton mnemonicParsing="false" text="Flat" />
                                     <RadioButton mnemonicParsing="false" text="Elevation" />
                                     <RadioButton mnemonicParsing="false" text="Depression" />
-                                    <Label text="ILM Reflex" />
+                                    <Label text="ILM Reflex">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A bright, pinpoint, or oval glint of light reflecting off the central macula (fovea). It is very sharp and prominent in children and young adults because their ILM is very smooth. It naturally fades or becomes &quot;dull&quot; with age." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Label>
                                     <RadioButton mnemonicParsing="false" text="Cellophane metallic glint " />
                                     <RadioButton mnemonicParsing="false" text="Satin-like sheen" />
                                     <Label text="PVD" />
                                     <RadioButton mnemonicParsing="false" text="Absent" />
                                     <RadioButton mnemonicParsing="false" text="Partial with traction" />
                                     <RadioButton mnemonicParsing="false" text="Partial" />
-                                    <RadioButton mnemonicParsing="false" text="Complete" />
+                                    <RadioButton mnemonicParsing="false" text="Complete">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="The Weiss Ring: This is the definitive clinical sign. It is a circular, translucent floating opacity that represents the detached attachment point from the optic nerve head." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></RadioButton>
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -262,20 +301,140 @@
                               <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
                                  <children>
                                     <Label text="Edema / Liquid" />
-                                    <CheckBox mnemonicParsing="false" text="Cystoid spaces" />
-                                    <CheckBox mnemonicParsing="false" text="Serous Retinal Detachment" />
-                                    <CheckBox mnemonicParsing="false" text="Pigment Epithelial Detachment" />
+                                    <CheckBox mnemonicParsing="false" text="Cystoid spaces">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="The observation of Cystoid Macular Edema (CME) on fundoscopy often shows a thickened macula with a loss of the normal foveal reflex. In advanced cases, fluid accumulates in a characteristic 'flower petal' (petaloid) pattern due to the arrangement of Henle’s nerve fibers." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Serous Retinal Detachment">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text=" A serous retinal detachment often presents as a smooth, dome-shaped bubble. A major clinical sign is shifting fluid, where the detachment changes position based on the patient's head posture due to simple gravity." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Pigment Epithelial Detachment">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Appears as a well-demarcated, dome-shaped elevation. It often has a translucent or orange-yellow hue and may &quot;glow&quot; or transilluminate when the light beam is placed over it. Drusenoid PED: Typically presents as a yellow-white elevation with scalloped or &quot;irregular&quot; borders. You might see a &quot;triradiate&quot; or stellate pattern of brownish pigment on its surface. Fibrovascular PED: Often looks more irregular and less &quot;smooth&quot; than serous types. Look for signs of activity like yellow exudates or subretinal hemorrhage (blood) at the margins" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
                                     <Label text="Deposits  &amp; Atrophy" />
-                                    <CheckBox mnemonicParsing="false" text="Hard drusens" />
-                                    <CheckBox mnemonicParsing="false" text="Soft drusens " />
-                                    <CheckBox mnemonicParsing="false" text="Cuticular drusens " />
-                                    <CheckBox mnemonicParsing="false" text="Hard Exudates" />
-                                    <CheckBox mnemonicParsing="false" text="Geographic atrophy" />
+                                    <CheckBox mnemonicParsing="false" text="Hard drusens">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Yellow-white extracellular deposits that accumulate between the retinal pigment epithelium (RPE) and Bruch’s membrane. Small (&lt;63 µm), round, and discrete with very sharp borders" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Soft drusens ">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Yellow-white extracellular deposits that accumulate between the retinal pigment epithelium (RPE) and Bruch’s membrane. Larger (&gt;125 µm), amorphous, and pale yellow with fuzzy or indistinct borders." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Cuticular drusens ">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Yellow-white extracellular deposits that accumulate between the retinal pigment epithelium (RPE) and Bruch’s membrane. Numerous tiny, tiny &quot;pinpoint&quot; yellow lesions." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Hard Exudates">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Small, yellowish-white lipid deposits with sharp margins that form within the retinal layers. Unlike drusen (which are beneath the RPE), hard exudates are intraretinal, typically located in the outer plexiform layer." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Geographic atrophy">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Sharply Demarcated Areas: Patches of the retina appear as &quot;islands&quot; of depigmentation with very clear, well-defined borders. Visible Choroidal Vessels: Because the pigmented RPE layer is missing, you can easily see the larger, underlying choroidal blood vessels through the atrophic patch. Color Change: These areas typically appear lighter, pale pink, or yellowish-white compared to the surrounding healthy retina." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
                                     <CheckBox mnemonicParsing="false" text="Pigment clumping" />
-                                    <CheckBox mnemonicParsing="false" text="Macular Nevus" />
-                                    <CheckBox mnemonicParsing="false" text="Subretinal Hemorrhage" />
-                                    <CheckBox mnemonicParsing="false" text="Full thickness macular hole " />
-                                    <CheckBox mnemonicParsing="false" text="Lamellar Hole" />
+                                    <CheckBox mnemonicParsing="false" text="Macular Nevus">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Typically appears as a flat or minimally elevated, slate-gray to brown lesion located deep within the choroid. It is characterized by well-demarcated but soft borders that blend into the surrounding fundus, often reaching a diameter of several millimeters." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Subretinal Hemorrhage">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="bright red to deep maroon lesion with irregular, scalloped, or diffuse borders. Because the blood is located deep to the neurosensory retina, the retinal vasculature is clearly visible passing over the surface of the hemorrhage" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Full thickness macular hole ">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text=" Appears as a well-defined, round, red spot in the center of the macula. A surrounding grayish halo or &quot;cuff&quot; indicates fluid that has seeped under the edges of the hole, causing a shallow local detachment." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Lamellar Hole">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="a partial-thickness defect where the inner layers of the fovea are lost or split, but the outer retinal layers (including photoreceptors) remain intact. IIt typically appears as a round or oval reddish lesion at the center of the macula, slightly darker than the surrounding tissue." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
                                  </children>
                                  <padding>
                                     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -502,7 +661,7 @@
                   </GridPane>
                </children>
                <BorderPane.margin>
-                  <Insets top="10.0" />
+                  <Insets />
                </BorderPane.margin>
             </VBox>
          </bottom>

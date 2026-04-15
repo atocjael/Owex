@@ -11,3 +11,5 @@ Macular nevus / Typically appears as a flat or minimally elevated, slate-gray to
 Subretinal hemorrhage/ bright red to deep maroon lesion with irregular, scalloped, or diffuse borders. Because the blood is located deep to the neurosensory retina, the retinal vasculature is clearly visible passing over the surface of the hemorrhage
 Full Thickness Macular Hole (FTMH) / Appears as a well-defined, round, red spot in the center of the macula. A surrounding grayish halo or "cuff" indicates fluid that has seeped under the edges of the hole, causing a shallow local detachment.
 Lamellar macular hole/ a partial-thickness defect where the inner layers of the fovea are lost or split, but the outer retinal layers (including photoreceptors) remain intact. IIt typically appears as a round or oval reddish lesion at the center of the macula, slightly darker than the surrounding tissue.
+
+Yellow-white extracellular deposits that accumulate between the retinal pigment epithelium (RPE) and Bruch’s membrane. Numerous tiny, tiny "pinpoint" yellow lesions.

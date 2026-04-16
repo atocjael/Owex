@@ -69,7 +69,7 @@
                   </Tab>
                 <Tab text="Optic Nerve Head">
                      <content>
-                        <SplitPane dividerPositions="0.5" prefHeight="524.0" prefWidth="835.0">
+                        <SplitPane dividerPositions="0.5" prefHeight="484.0" prefWidth="709.0">
                            <items>
                               <VBox maxHeight="1.7976931348623157E308" prefWidth="600.0" spacing="10.0">
                                  <children>
@@ -496,21 +496,80 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <CheckBox mnemonicParsing="false" text="Microaneurysms" />
-                                    <CheckBox mnemonicParsing="false" text="Cotton Wool Spots" GridPane.rowIndex="1" />
-                                    <CheckBox mnemonicParsing="false" text="Dot and Blot hemorrhage" GridPane.rowIndex="2" />
+                                    <CheckBox mnemonicParsing="false" text="Microaneurysms">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Small, discrete red dots on the surface of the retina. They are typically the earliest visible sign of diabetic retinopathy. They look like tiny, round, or circular red dots. While most are bright red, some may appear yellowish if they have undergone internal changes like hyalinization." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Cotton Wool Spots" GridPane.rowIndex="1">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Also called &quot;soft exudates&quot;,  they present as superficial, whitish-gray patches with fuzzy, ill-defined borders that resemble small tufts of cotton or clouds. Unlike hard exudates, they are opaque and slightly elevated because they occur in the nerve fiber layer, often appearing to obscure underlying retinal vessels. " wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Dot and Blot hemorrhage" GridPane.rowIndex="2">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Dark red, circular, or irregular &quot;blobs&quot; located deep within the retinal tissue. Their characteristic rounded shape occurs because the escaped blood is physically compressed by the densely packed neurons of the inner nuclear and outer plexiform layers." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
                                     <TextField GridPane.columnIndex="1" />
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                                    <CheckBox mnemonicParsing="false" text="Neovascularisation else where" GridPane.rowIndex="3" />
+                                    <CheckBox mnemonicParsing="false" text="Neovascularisation else where" GridPane.rowIndex="4">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Appears as delicate, disorganized &quot;fronds&quot; or lacy networks of tiny, irregular blood vessels branching from existing retinal veins. These new vessels are typically found more than one disc diameter away from the optic nerve head and often grow along the surface of the retina or extend into the vitreous." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <CheckBox mnemonicParsing="false" text="Flame-Shaped Hemorrhages" GridPane.rowIndex="3">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text=" Bright red, splinter-like streaks within the superficial nerve fiber layer (RNFL)." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
-                              <CheckBox mnemonicParsing="false" text="Boat-shaped/Preretinal hemorrhage" />
-                              <CheckBox mnemonicParsing="false" text="Venous beading / looping" />
-                              <CheckBox mnemonicParsing="false" text="IRMA" />
+                              <CheckBox mnemonicParsing="false" text="Boat-shaped/Preretinal hemorrhage">
+                                 <tooltip>
+                                    <Tooltip maxWidth="350.0" text="Large, distinct pools of bright red blood trapped between the retina and the vitreous (subhyaloid space). Because the blood is not confined by retinal tissue, gravity causes the red blood cells to settle at the bottom, creating a characteristic straight horizontal top border and a curved, rounded bottom." wrapText="true">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Tooltip>
+                                 </tooltip></CheckBox>
+                              <CheckBox mnemonicParsing="false" text="Venous beading / looping">
+                                 <tooltip>
+                                    <Tooltip maxWidth="350.0" text="Structural venous deformities that signify severe retinal ischemia and a high risk of progression to proliferative disease. Venous beading is characterized by focal, irregular areas of dilation and narrowing, giving the vessel a &quot;string of sausages&quot; or beaded appearance, while venous looping occurs when a vein deviates into a sharp, omega-shaped or circular turn." wrapText="true">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Tooltip>
+                                 </tooltip></CheckBox>
+                              <CheckBox mnemonicParsing="false" text="IRMA">
+                                 <tooltip>
+                                    <Tooltip maxWidth="350.0" text="Fine, tortuous, &quot;wiry&quot; red lines that form a complex, lacy network within the retinal tissue. These vessels are typically found in the mid-periphery, often adjacent to areas of capillary non-perfusion or near cotton wool spots, acting as intraretinal shunts. Unlike the delicate &quot;fronds&quot; of neovascularization, IRMA vessels have sharper, better-defined outlines, are slightly larger in caliber, and are strictly contained within the retina—they do not cross over major retinal vessels or grow into the vitreous." wrapText="true">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Tooltip>
+                                 </tooltip></CheckBox>
                               <Label text="Others signs" />
                               <GridPane>
                                 <columnConstraints>
@@ -523,9 +582,30 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <CheckBox mnemonicParsing="false" text="Emboli" />
-                                    <CheckBox mnemonicParsing="false" text="Infectious  / inflammatory lesions" GridPane.rowIndex="1" />
-                                    <CheckBox mnemonicParsing="false" text="Choroid nevus" GridPane.rowIndex="2" />
+                                    <CheckBox mnemonicParsing="false" text="Emboli">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Small, distinct particles trapped within the retinal arterioles, typically categorized into three main types based on their appearance and source. Cholesterol emboli (Hollenhorst plaques) are the most common and appear as highly refractile, bright yellow or orange crystals usually located at vessel bifurcations; they often originate from carotid artery atherosclerosis. Calcific emboli are dull, chalky white, and larger, typically lodging in major vessels near the optic disc and suggesting a source from calcified heart valves. Platelet-fibrin emboli present as dull, grayish-white, elongated &quot;plugs&quot; that may move through the circulation or appear in &quot;showers,&quot; often associated with mural thrombi in the carotid system or heart." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Infectious  / inflammatory lesions" GridPane.rowIndex="1">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Typically present as creamy yellow or whitish patches on the retina, with their appearance varying significantly based on whether the condition is active or chronic. Active Lesions: These appear as creamy, yellowish-white patches with fuzzy, blurred borders due to surrounding retinal edema. They are often accompanied by &quot;vitritis&quot;—inflammatory cells in the vitreous that create a &quot;haze&quot; or &quot;headlight in the fog&quot; effect. Inactive/Healed Lesions: Chronic lesions develop into sharply demarcated scars with distinct borders. These scars often show pigmentation (black clumping) at the edges and areas of &quot;punched-out&quot; atrophy where the underlying choroidal vessels may become visible." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
+                                    <CheckBox mnemonicParsing="false" text="Choroid nevus" GridPane.rowIndex="2">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A flat or minimally elevated, well-defined lesion with a characteristic slate-gray or brown color and feathered borders. Key indicators of a benign, long-standing lesion include the presence of overlying drusen and the absence of symptoms like flashes or vision loss. To differentiate it from a melanoma, clinicians look for &quot;red flag&quot; features such as a thickness greater than 2 mm, the presence of subretinal fluid, or the appearance of orange pigment (lipofuscin) on the surface." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
                                     <TextField GridPane.columnIndex="1" />
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>

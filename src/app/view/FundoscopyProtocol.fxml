@@ -506,7 +506,10 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Tooltip>
-                                       </tooltip></CheckBox>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
                                     <CheckBox mnemonicParsing="false" text="Cotton Wool Spots" GridPane.rowIndex="1">
                                        <tooltip>
                                           <Tooltip maxWidth="350.0" text="Also called &quot;soft exudates&quot;,  they present as superficial, whitish-gray patches with fuzzy, ill-defined borders that resemble small tufts of cotton or clouds. Unlike hard exudates, they are opaque and slightly elevated because they occur in the nerve fiber layer, often appearing to obscure underlying retinal vessels. " wrapText="true">
@@ -514,7 +517,10 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Tooltip>
-                                       </tooltip></CheckBox>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
                                     <CheckBox mnemonicParsing="false" text="Dot and Blot hemorrhage" GridPane.rowIndex="2">
                                        <tooltip>
                                           <Tooltip maxWidth="350.0" text="Dark red, circular, or irregular &quot;blobs&quot; located deep within the retinal tissue. Their characteristic rounded shape occurs because the escaped blood is physically compressed by the densely packed neurons of the inner nuclear and outer plexiform layers." wrapText="true">
@@ -522,7 +528,10 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Tooltip>
-                                       </tooltip></CheckBox>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
                                     <TextField GridPane.columnIndex="1" />
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
@@ -533,7 +542,10 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Tooltip>
-                                       </tooltip></CheckBox>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     <CheckBox mnemonicParsing="false" text="Flame-Shaped Hemorrhages" GridPane.rowIndex="3">
                                        <tooltip>
@@ -542,7 +554,10 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Tooltip>
-                                       </tooltip></CheckBox>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
@@ -553,7 +568,10 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Tooltip>
-                                 </tooltip></CheckBox>
+                                 </tooltip>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
                               <CheckBox mnemonicParsing="false" text="Venous beading / looping">
                                  <tooltip>
                                     <Tooltip maxWidth="350.0" text="Structural venous deformities that signify severe retinal ischemia and a high risk of progression to proliferative disease. Venous beading is characterized by focal, irregular areas of dilation and narrowing, giving the vessel a &quot;string of sausages&quot; or beaded appearance, while venous looping occurs when a vein deviates into a sharp, omega-shaped or circular turn." wrapText="true">
@@ -561,7 +579,10 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Tooltip>
-                                 </tooltip></CheckBox>
+                                 </tooltip>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
                               <CheckBox mnemonicParsing="false" text="IRMA">
                                  <tooltip>
                                     <Tooltip maxWidth="350.0" text="Fine, tortuous, &quot;wiry&quot; red lines that form a complex, lacy network within the retinal tissue. These vessels are typically found in the mid-periphery, often adjacent to areas of capillary non-perfusion or near cotton wool spots, acting as intraretinal shunts. Unlike the delicate &quot;fronds&quot; of neovascularization, IRMA vessels have sharper, better-defined outlines, are slightly larger in caliber, and are strictly contained within the retina—they do not cross over major retinal vessels or grow into the vitreous." wrapText="true">
@@ -569,7 +590,10 @@
                                           <Font size="14.0" />
                                        </font>
                                     </Tooltip>
-                                 </tooltip></CheckBox>
+                                 </tooltip>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></CheckBox>
                               <Label text="Others signs" />
                               <GridPane>
                                 <columnConstraints>
@@ -589,7 +613,10 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Tooltip>
-                                       </tooltip></CheckBox>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
                                     <CheckBox mnemonicParsing="false" text="Infectious  / inflammatory lesions" GridPane.rowIndex="1">
                                        <tooltip>
                                           <Tooltip maxWidth="350.0" text="Typically present as creamy yellow or whitish patches on the retina, with their appearance varying significantly based on whether the condition is active or chronic. Active Lesions: These appear as creamy, yellowish-white patches with fuzzy, blurred borders due to surrounding retinal edema. They are often accompanied by &quot;vitritis&quot;—inflammatory cells in the vitreous that create a &quot;haze&quot; or &quot;headlight in the fog&quot; effect. Inactive/Healed Lesions: Chronic lesions develop into sharply demarcated scars with distinct borders. These scars often show pigmentation (black clumping) at the edges and areas of &quot;punched-out&quot; atrophy where the underlying choroidal vessels may become visible." wrapText="true">
@@ -597,7 +624,10 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Tooltip>
-                                       </tooltip></CheckBox>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
                                     <CheckBox mnemonicParsing="false" text="Choroid nevus" GridPane.rowIndex="2">
                                        <tooltip>
                                           <Tooltip maxWidth="350.0" text="A flat or minimally elevated, well-defined lesion with a characteristic slate-gray or brown color and feathered borders. Key indicators of a benign, long-standing lesion include the presence of overlying drusen and the absence of symptoms like flashes or vision loss. To differentiate it from a melanoma, clinicians look for &quot;red flag&quot; features such as a thickness greater than 2 mm, the presence of subretinal fluid, or the appearance of orange pigment (lipofuscin) on the surface." wrapText="true">
@@ -605,7 +635,10 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Tooltip>
-                                       </tooltip></CheckBox>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
                                     <TextField GridPane.columnIndex="1" />
                                     <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                  </children>
@@ -630,16 +663,56 @@
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label text="A/V ratio" />
+                                    <Label text="A/V ratio">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="The standard A/V ratio is typically 2:3. This means that a healthy retinal artery is roughly two-thirds the width of its accompanying vein. Arteries appear thinner and lighter in color (bright red), while veins are wider and darker (deep red)" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></Label>
                                     <TextField GridPane.columnIndex="1" />
                                     <CheckBox mnemonicParsing="false" text="Arterial narrowing" GridPane.rowIndex="1" />
                                     <CheckBox mnemonicParsing="false" text="Venous dilation" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
                               <Label text="A/V crossings" />
-                              <CheckBox mnemonicParsing="false" text="Gunn sign" />
-                              <CheckBox mnemonicParsing="false" text="Salus sign" />
-                              <CheckBox mnemonicParsing="false" text="Bonnet sign" />
+                              <CheckBox mnemonicParsing="false" text="Gunn sign">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <tooltip>
+                                    <Tooltip maxWidth="350.0" text="Gunn sign (also known as arteriovenous nicking or nipping) is a hallmark of chronic hypertensive retinopathy. It is characterized by the tapering or apparent narrowing of a retinal vein on either side of the point where it is crossed by a thickened, sclerotic arteriole. This &quot;pinched&quot; appearance occurs because the hardened arterial wall, along with a shared connective tissue sheath, compresses the underlying vein and obscures the blood column within it." wrapText="true">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Tooltip>
+                                 </tooltip></CheckBox>
+                              <CheckBox mnemonicParsing="false" text="Salus sign">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <tooltip>
+                                    <Tooltip maxWidth="350.0" text="Salus's sign is a clinical finding on fundoscopy where a retinal vein is deflected or bent at the point where it is crossed by an artery.  Instead of the vein and artery crossing at an acute angle, the vein is pushed aside, taking on a sharp &quot;S-shaped&quot; or &quot;Z-shaped&quot; curve." wrapText="true">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Tooltip>
+                                 </tooltip></CheckBox>
+                              <CheckBox mnemonicParsing="false" text="Bonnet sign">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <tooltip>
+                                    <Tooltip maxWidth="350.0" text="Bonnet’s sign is a clinical finding where a retinal vein appears dilated or &quot;banked&quot; distal to an arteriovenous (A/V) crossing. The vein looks swollen or engorged on the side furthest from the optic disc. It often looks like blood is &quot;pooling&quot; because it cannot easily pass under the compressed crossing point." wrapText="true">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Tooltip>
+                                 </tooltip></CheckBox>
                               <Label text="Others findings" />
                               <GridPane>
                                 <columnConstraints>
@@ -653,16 +726,63 @@
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
-                                    <Label text="Arterial light reflex" />
+                                    <Label text="Arterial light reflex">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="The arterial light reflex (ALR) is the normal reflection of light off the surface of retinal arterioles during fundoscopy. In a healthy eye, the central light streak is thin and bright, usually covering about 1/4 to 1/3 of the total diameter of the vessel." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></Label>
                                     <RadioButton mnemonicParsing="false" text="Normal" GridPane.columnIndex="1" />
-                                    <RadioButton mnemonicParsing="false" text="Copper wiring" GridPane.columnIndex="2" />
-                                    <RadioButton mnemonicParsing="false" text="Silver wiring" GridPane.columnIndex="3" />
-                                    <CheckBox mnemonicParsing="false" text="Abnormal tortuosity" GridPane.rowIndex="1" />
+                                    <RadioButton mnemonicParsing="false" text="Copper wiring" GridPane.columnIndex="2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Copper wiring is a clinical finding on fundoscopy where the retinal arterioles take on a burnished, metallic orange-yellow appearance. The normal bright-red color of the arteriole is replaced by a reddish-brown or orange-yellow metallic sheen." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="Silver wiring" GridPane.columnIndex="3">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Silver wiring - The vessel loses its normal red or orange-yellow color and appears as a solid white or silver cord. The central light reflex, which is thin in healthy vessels and broad/metallic in &quot;copper wiring,&quot; becomes so wide that it covers the entire width of the vessel." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></RadioButton>
+                                    <CheckBox mnemonicParsing="false" text="Abnormal tortuosity" GridPane.rowIndex="1">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Abnormal retinal vascular tortuosity refers to an excessive twisting, coiling, or undulating appearance of the retinal arteries or veins on fundoscopy. While some degree of vessel curvature is normal, extreme tortuosity often signals underlying ocular or systemic disease." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
                                     <RadioButton mnemonicParsing="false" text="Congenital" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <RadioButton mnemonicParsing="false" text="Acquired" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                                  </children>
                               </GridPane>
-                              <CheckBox mnemonicParsing="false" text="Sheathing" />
+                              <CheckBox mnemonicParsing="false" text="Sheathing">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <tooltip>
+                                    <Tooltip maxWidth="350.0" text="Sheathing in fundoscopy refers to a white or grayish-white coating that appears to surround the retinal blood vessels. It is generally a sign of either inflammation or advanced vascular sclerosis. Often looks like a &quot;white cuff&quot; or fuzzy &quot;frosting&quot; around the vessel." wrapText="true">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Tooltip>
+                                 </tooltip></CheckBox>
                            </children>
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -677,7 +797,7 @@
                               <Label text="Scleral indentation" />
                               <GridPane>
                                 <columnConstraints>
-                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="30.0" prefWidth="100.0" />
                                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -698,17 +818,103 @@
                                     <RadioButton mnemonicParsing="false" text="N" GridPane.columnIndex="3" />
                                     <RadioButton mnemonicParsing="false" text="Y" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                     <RadioButton mnemonicParsing="false" text="N" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-                                    <RadioButton mnemonicParsing="false" text="Pavingstone" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                    <RadioButton mnemonicParsing="false" text="White-without-pressure" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                    <RadioButton mnemonicParsing="false" text="Pavingstone" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Lesions appear as discrete, rounded, pale areas that resemble a stone-paved street. They often have a thin pigmented border and may show large choroidal blood vessels running underneath them. It is almost exclusively found in the far periphery of the retina, most frequently in the inferior (bottom) quadrants." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="White-without-pressure" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A common, typically benign peripheral retinal finding where a portion of the retina appears translucent white to gray. It often presents as a flat, whitish film with a sharply demarcated posterior border. This border sometimes has a reddish-brown or &quot;dark&quot; appearance, which can be mistaken for a retinal tear." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></RadioButton>
                                     <CheckBox mnemonicParsing="false" text="High-risk degenerations" GridPane.rowIndex="3" />
-                                    <RadioButton mnemonicParsing="false" text="Lattice" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                                    <RadioButton mnemonicParsing="false" text="Vitreoretinal tuft" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                                    <RadioButton mnemonicParsing="false" text="Retinoschisis" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="Lattice" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A common peripheral retinal condition characterized by localized thinning of the retinal tissue, often accompanied by a &quot;cross-hatching&quot; pattern of whitened blood vessels. It is the most important visible lesion predisposing to retinal tears and detachment." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="Vitreoretinal tuft" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Small, congenital projections of glial and retinal tissue that extend into the vitreous cavity. They represent focal areas of abnormally strong adhesion between the retina and the vitreous gel. They typically appear chalky white or grayish-white. Unlike retinal tears, which are often translucent, tufts are opaque due to the presence of glial (scar-like) tissue." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="Retinoschisis" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A smooth, dome-shaped, and transparent elevation of the inner retinal layers. It lacks the corrugations or surface wrinkling often seen in retinal detachments." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></RadioButton>
                                     <CheckBox mnemonicParsing="false" text="Acute lesions" GridPane.rowIndex="4" />
-                                    <RadioButton mnemonicParsing="false" text="Tear" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                    <RadioButton mnemonicParsing="false" text="Atrophic hole" GridPane.columnIndex="2" GridPane.rowIndex="4" />
-                                    <RadioButton mnemonicParsing="false" text="Retinal detachment" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-                                    <CheckBox mnemonicParsing="false" text="Peipheral neovascularization" GridPane.rowIndex="5" />
+                                    <RadioButton mnemonicParsing="false" text="Tear" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Full-thickness break in the neurosensory retina that typically occurs when the vitreous gel exerts acute traction on the retinal surface, often during a posterior vitreous detachment. On fundoscopy, the most characteristic finding is a horseshoe-shaped (U-shaped) flap of tissue, with its apex pointing toward the center of the eye and its base directed toward the periphery. " wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="Atrophic hole" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A small, well-circumscribed, and typically round reddish lesion in the peripheral retina. The red color is a result of the underlying choroidal vasculature being visible through the full-thickness retinal break." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="Retinal detachment" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A sight-threatening ocular emergency where the neurosensory retina separates from the underlying retinal pigment epithelium, cutting off its vital blood and nutrient supply. The detached retina typically appears as an elevated, opaque, grayish-white membrane that has lost its normal transparent, orange-red reflex. " />
+                                       </tooltip></RadioButton>
+                                    <CheckBox mnemonicParsing="false" text="Peripheral neovascularization" GridPane.rowIndex="5">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Growth of fragile, abnormal new blood vessels in the outer edges of the retina, typically in response to ischemia.  Abnormal clusters or networks of new blood vessels growing at the vitreoretinal interface." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip></CheckBox>
                                  </children>
                               </GridPane>
                            </children>

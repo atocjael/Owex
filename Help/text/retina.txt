@@ -17,3 +17,9 @@ infectious and inflammatory lesions (chorioretinitis) / typically present as cre
 Flame-shaped hemorrhages / bright red, splinter-like streaks within the superficial nerve fiber layer (RNFL). 
 
 choroidal nevus / a flat or minimally elevated, well-defined lesion with a characteristic slate-gray or brown color and feathered borders. Key indicators of a benign, long-standing lesion include the presence of overlying drusen and the absence of symptoms like flashes or vision loss. To differentiate it from a melanoma, clinicians look for "red flag" features such as a thickness greater than 2 mm, the presence of subretinal fluid, or the appearance of orange pigment (lipofuscin) on the surface.
+
+A tigroid fundus (also called a tessellated fundus) refers to a striped or mosaic-like appearance of the eye's posterior. This color pattern occurs when the Retinal Pigment Epithelium (RPE) is thin or lacks enough pigment, allowing the darker, underlying choroidal blood vessels to become visible. It typically appears as dark, polygonal areas or stripes separated by the reddish/orange lines of the choroidal vessels.
+
+A pale color of the retina often indicates either a loss of normal blood flow or an accumulation of abnormal materials within the retinal layers. This appearance is frequently as retinal opacification or whitening rather than simple "paleness"
+
+A hazy fundus background refers to a loss of detail and clarity when viewing the back of the eye. This "haze" is typically caused by media opacities—cloudiness in the structures light must pass through to reach the retina—rather than a disease of the retina itself

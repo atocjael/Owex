@@ -27,7 +27,7 @@
 
 <VBox prefHeight="550.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <BorderPane prefHeight="550.0" prefWidth="700.0">
+      <BorderPane prefHeight="550.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
          <center>
             <TabPane prefHeight="550.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
               <tabs>
@@ -465,7 +465,17 @@
                                  <children>
                                     <Label text="Transparency" />
                                     <RadioButton mnemonicParsing="false" text="Normal" GridPane.columnIndex="1" />
-                                    <RadioButton mnemonicParsing="false" text="Hazy" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="Hazy" GridPane.columnIndex="3">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A hazy fundus background refers to a loss of detail and clarity when viewing the back of the eye. This &quot;haze&quot; is typically caused by media opacities—cloudiness in the structures light must pass through to reach the retina—rather than a disease of the retina itself" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></RadioButton>
                                  </children>
                               </GridPane>
                               <GridPane>
@@ -481,8 +491,28 @@
                                  <children>
                                     <Label text="Color" />
                                     <RadioButton mnemonicParsing="false" text="Normal" GridPane.columnIndex="1" />
-                                    <RadioButton mnemonicParsing="false" text="Pale" GridPane.columnIndex="2" />
-                                    <RadioButton mnemonicParsing="false" text="Tigroid" GridPane.columnIndex="3" />
+                                    <RadioButton mnemonicParsing="false" text="Pale" GridPane.columnIndex="2">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A pale color of the retina often indicates either a loss of normal blood flow or an accumulation of abnormal materials within the retinal layers. This appearance is frequently as retinal opacification or whitening rather than simple &quot;paleness&quot;" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></RadioButton>
+                                    <RadioButton mnemonicParsing="false" text="Tigroid" GridPane.columnIndex="3">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="striped or mosaic-like appearance of the eye's posterior. This color pattern occurs when the Retinal Pigment Epithelium (RPE) is thin or lacks enough pigment, allowing the darker, underlying choroidal blood vessels to become visible. It typically appears as dark, polygonal areas or stripes separated by the reddish/orange lines of the choroidal vessels." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></RadioButton>
                                  </children>
                               </GridPane>
                               <Label text="Diabetic / ischemic vascular signs" />
@@ -532,9 +562,9 @@
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor></CheckBox>
-                                    <TextField GridPane.columnIndex="1" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField promptText="Type the number and quadrant " GridPane.columnIndex="1" />
+                                    <TextField promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                     <CheckBox mnemonicParsing="false" text="Neovascularisation else where" GridPane.rowIndex="4">
                                        <tooltip>
                                           <Tooltip maxWidth="350.0" text="Appears as delicate, disorganized &quot;fronds&quot; or lacy networks of tiny, irregular blood vessels branching from existing retinal veins. These new vessels are typically found more than one disc diameter away from the optic nerve head and often grow along the surface of the retina or extend into the vitreous." wrapText="true">
@@ -546,7 +576,7 @@
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor></CheckBox>
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                    <TextField promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                     <CheckBox mnemonicParsing="false" text="Flame-Shaped Hemorrhages" GridPane.rowIndex="3">
                                        <tooltip>
                                           <Tooltip maxWidth="350.0" text=" Bright red, splinter-like streaks within the superficial nerve fiber layer (RNFL)." wrapText="true">
@@ -558,7 +588,7 @@
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor></CheckBox>
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                    <TextField promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                  </children>
                               </GridPane>
                               <CheckBox mnemonicParsing="false" text="Boat-shaped/Preretinal hemorrhage">
@@ -639,8 +669,10 @@
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor></CheckBox>
-                                    <TextField GridPane.columnIndex="1" />
-                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField promptText="Type the type of emboli and where it's seen" GridPane.columnIndex="1" />
+                                    <TextField promptText="Type the kind of lesion and quadrant" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                    <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                    <TextField promptText="Type the quadrant" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
                            </children>
@@ -724,6 +756,7 @@
                                 <rowConstraints>
                                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                                 </rowConstraints>
                                  <children>
                                     <Label text="Arterial light reflex">
@@ -733,7 +766,10 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Tooltip>
-                                       </tooltip></Label>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></Label>
                                     <RadioButton mnemonicParsing="false" text="Normal" GridPane.columnIndex="1" />
                                     <RadioButton mnemonicParsing="false" text="Copper wiring" GridPane.columnIndex="2">
                                        <cursor>
@@ -770,19 +806,21 @@
                                        </tooltip></CheckBox>
                                     <RadioButton mnemonicParsing="false" text="Congenital" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                     <RadioButton mnemonicParsing="false" text="Acquired" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                    <CheckBox mnemonicParsing="false" text="Sheathing" GridPane.rowIndex="2">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Sheathing in fundoscopy refers to a white or grayish-white coating that appears to surround the retinal blood vessels. It is generally a sign of either inflammation or advanced vascular sclerosis. Often looks like a &quot;white cuff&quot; or fuzzy &quot;frosting&quot; around the vessel." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                    </CheckBox>
+                                    <TextField prefHeight="25.0" prefWidth="323.0" promptText="Specify which vessels " GridPane.columnIndex="1" GridPane.columnSpan="2147483647" GridPane.rowIndex="2" />
                                  </children>
                               </GridPane>
-                              <CheckBox mnemonicParsing="false" text="Sheathing">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <tooltip>
-                                    <Tooltip maxWidth="350.0" text="Sheathing in fundoscopy refers to a white or grayish-white coating that appears to surround the retinal blood vessels. It is generally a sign of either inflammation or advanced vascular sclerosis. Often looks like a &quot;white cuff&quot; or fuzzy &quot;frosting&quot; around the vessel." wrapText="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Tooltip>
-                                 </tooltip></CheckBox>
                            </children>
                            <padding>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

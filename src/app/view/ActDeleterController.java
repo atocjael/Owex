@@ -1,13 +1,14 @@
 /* Decompiler 17ms, total 793ms, lines 98 */
 package app.view;
 
-import app.ExMain;
-import app.tools.Tools;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+
+import app.ExMain;
+import app.tools.Tools;
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -1,8 +1,9 @@
 /* Decompiler 28ms, total 455ms, lines 86 */
 package app;
 
-import app.view.AppPreloaderController;
 import java.io.IOException;
+
+import app.view.AppPreloaderController;
 import javafx.application.Preloader;
 import javafx.application.Preloader.StateChangeNotification.Type;
 import javafx.fxml.FXMLLoader;

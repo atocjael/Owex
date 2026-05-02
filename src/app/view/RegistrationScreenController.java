@@ -1,8 +1,6 @@
 /* Decompiler 297ms, total 670ms, lines 545 */
 package app.view;
 
-import app.ExMain;
-import app.tools.Tools;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.sql.Connection;
@@ -17,12 +15,16 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.UnaryOperator;
+
+import app.ExMain;
+import app.tools.Tools;
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
@@ -31,7 +33,6 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.ColumnConstraints;

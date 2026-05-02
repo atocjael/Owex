@@ -1,7 +1,6 @@
 /* Decompiler 285ms, total 1382ms, lines 484 */
 package app.tools;
 
-import app.ExMain;
 import java.awt.Component;
 import java.io.File;
 import java.io.IOException;
@@ -17,6 +16,10 @@ import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import javax.swing.JOptionPane;
+
+import app.ExMain;
 import javafx.animation.PauseTransition;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Rectangle2D;
@@ -29,7 +32,6 @@ import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Duration;
-import javax.swing.JOptionPane;
 
 public class Tools {
    private static ExMain main;

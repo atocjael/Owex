@@ -6,10 +6,7 @@ import java.awt.print.PageFormat;
 import java.awt.print.Paper;
 import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -2201,6 +2198,7 @@ public class AppHomeController {
    public void populateIolDirectory() {
       this.fileTree.setVisible(true);
       this.racine = new TreeItem<String>();
+      racine.getChildren().clear();
       File f = new File(this.main.getCreancesPath());
       if (f.isDirectory()) {
          TreeItem<String> lecteur = new TreeItem<String>(f.getName(), new ImageView(this.folder));

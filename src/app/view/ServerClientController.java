@@ -1,11 +1,12 @@
 /* Decompiler 13ms, total 370ms, lines 69 */
 package app.view;
 
-import app.ExMain;
-import app.tools.Tools;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
+
+import app.ExMain;
+import app.tools.Tools;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.PasswordField;

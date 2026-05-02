@@ -24,6 +24,7 @@ import app.view.EntryModifierController;
 import app.view.ExamAdderController;
 import app.view.ExamChoserController;
 import app.view.ExamRemoverController;
+import app.view.FundusController;
 import app.view.LoginScreenController;
 import app.view.MessageEphemereController;
 import app.view.PeriodeChoserController;
@@ -291,6 +292,7 @@ public class ExMain extends Application {
 
    public static void main(String[] args) {
       System.setProperty("javafx.preloader", OwPreloader.class.getCanonicalName());
+     // com.spire.doc.license.LicenseProvider.setLicenseKey("duIBAG6l4vG0VUr71xrrX30I6wRlVkoHXpDpKTANYVLnScihOUGkKPHQuyapjiokk13JS2cdtrrBOpQSfdVAyiwQcJxs62SfFrZdJ+crjxC51dxIInrwMSUMuWthiBymlteTGQ5ROVFGcpUEOpKVumGAA/nxRbKuR+9Oop0Srn9n7q3xD1+6ndSy6dV+QmpTgAE04Qp7fZdu13OB22O8a1yf4VAi8NtgSr3BhUz/mUnb1IMdrNYVVLMawKwabIX05qJlVCfIwBuVgyK9EbikftnIy+7P3RruO89G2lVRBy83QWPieLvEW+aHIPcONxlAek+pExFEsajMAr8Wzbtohg8Sf7QbeMKwuBMFyhN/6ghcVqeNKYFAaX7q9ZHm2ekEd6QTdYCAWyit7p1LaQBh8aH6jGSqxT1grKZ6Q1/3v3wctFV5owy/l1DSNCNz8g6rNg7BclGEB+cGHfeNVtn0DNQqJ5SgySTzvPnvuu59PLguA7RlMuacwyHym8e+GV1znphJGpYEjuGF1Barc8h4nw7DqRMv57nONJTk8UXtLRlrA0Ds/8VqtfWHV3XobPAtq0FN3Py1ByQTiG1QtBBV9VoLV8lx2SR6RnmL/pdHANl43k+FpS2+FK/6aun0tFJICWFEnPo+y6kScuL5dxEGOI2KugqaWp45mwMEJhiZzu1gOH5KONhVg1mX/BUbRz7rGZQH7XtbWNIyB53aWqdmEeZHjffdFxFUslQWMZwOazjytC6CjiystiFNjwitzFzi/rCpAXqED04ZQKWy12MiCBe/vexcYAT6BfaMxNc23J3phJrQmRRItPWfXIyypGIiYHYOaL3FPCska2DbI1xcqVfQ02IPDxlos6DqRAU9bWyR8sUb/V5kJdbqrfDeU07evxLow7gMvtbdUiX/JojwSv8En7ECfeOw5vvUUR1hP85XY6uERwyTlto67syRm+WjZ1ApYgOWKq3ING5uzC+DZyQDymZcwjz3hf6nZW0ev5WKlbxwm7oW28HvNoew3TxzJ8VuUNN6IVnAyz1D717fd9WVWJ5VGvD8RIHXlXEsPmUcP1NPAVLuJWdN0u4W504y0BdweJnZH6Ith4Axe0DplRFmuOIffQgSulkkc+tS/nVLTAf2emzpAmfnf+OpThB+sUVJUniuj+ThYksZJT6f1+EcjVTFCSH/O073XURiKMgaza8x2P55QcDQabVC8lUS9hw8ZW90QgcLzBK0EMBTJtIgpWJcJg6AElhbGknRuzqtHYTmMjWWJrQTklGD9rWOWuHXWfwG52vko2GbKmXfE/9aLbXgywPQ+MPf5oEsDgBIQW+uOmOhBowr0c2GGymyRZInobd418M+qleinl41LvxSPAklryUVr3nmlVf8oHS480qNItH0o1R7VmEss/xY6g+IB/3xwVP5oG6SD5gwt2/jjcH8BcyXdj2AfhSijRAnVMg4H8xgbNVXwag1CrLOi4n5o42rc/O1NGjgOM7aP/Y9nvchpD6vnqdx9tTxNER5dPx1DGyfSGKwDmBNXwj+v6b6Pymvhn8ctcW5VYBdMg==");
       launch(args);
    }
 
@@ -722,6 +724,8 @@ public class ExMain extends Application {
 	         stage.setScene(hScene);
 	         stage.initOwner(this.stagePrincipale);
 	         stage.setTitle("Owex-R - Help");
+	         
+	         
 	         stage.showAndWait();
 	      } catch (IOException var6) {
 	         var6.printStackTrace();
@@ -732,7 +736,7 @@ public class ExMain extends Application {
    
    public void showFundusProtocol() {
 	      FXMLLoader loader = new FXMLLoader();
-	      loader.setLocation(ExMain.class.getResource("view/FundoscopyProtocol.fxml"));
+	      loader.setLocation(ExMain.class.getResource("view/Fundus.fxml"));
 
 	      try {
 	         VBox hPane = (VBox)loader.load();
@@ -741,6 +745,9 @@ public class ExMain extends Application {
 	         stage.setScene(hScene);
 	         stage.initOwner(this.stagePrincipale);
 	         stage.setTitle("Owex-R - Fundus Protocol");
+	         FundusController controller= (FundusController)loader.getController();
+	         controller.setMain(this);
+	         controller.setStage(stage);
 	         stage.showAndWait();
 	      } catch (IOException var6) {
 	         var6.printStackTrace();

@@ -14,1119 +14,1238 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.view.FundusController">
-	<children>
-		<BorderPane prefHeight="550.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
-			<center>
-				<TabPane fx:id="globTabs" prefHeight="550.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-					<tabs>
-						<Tab fx:id="identification" text="Patient Identification">
-							<content>
-								<VBox prefHeight="200.0" prefWidth="100.0">
-									<children>
-										<GridPane>
-											<columnConstraints>
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-											</columnConstraints>
-											<rowConstraints>
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-											</rowConstraints>
-											<children>
-												<Label text="First and Last name" />
-												<TextField fx:id="pName" GridPane.columnIndex="1" />
-												<Label text="Indication" GridPane.rowIndex="3" />
-												<Label text="Gender" GridPane.rowIndex="2" />
-												<ComboBox fx:id="pGender" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-												<Label text="Age" GridPane.rowIndex="1" />
-												<TextField fx:id="pAge" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-												<Label text="Eye" GridPane.rowIndex="4" />
-												<ComboBox fx:id="pEye" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                                    <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#savePatientInfos" prefHeight="50.0" prefWidth="150.0" text="Save" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="7" />
-                                    <ComboBox fx:id="fundusIndication" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-											</children>
-										</GridPane>
-									</children>
-									<padding>
-										<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-									</padding>
-								</VBox>
-							</content>
-						</Tab>
-						<Tab fx:id="onh" text="Optic Nerve Head">
-                     <content>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
-                           <children>
-                              <SplitPane dividerPositions="0.5" prefHeight="484.0" prefWidth="700.0">
-                                 <items>
-                                    <VBox maxHeight="1.7976931348623157E308" prefWidth="600.0" spacing="10.0">
+<StackPane fx:id="generalPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.view.FundusController">
+   <children>
+      <VBox fx:id="generalBox" prefHeight="600.0" prefWidth="1000.0">
+         <children>
+            <BorderPane fx:id="borderP" prefHeight="550.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+               <center>
+                  <TabPane fx:id="globTabs" prefHeight="550.0" prefWidth="700.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                     <tabs>
+                        <Tab fx:id="identification" text="Patient Identification">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <GridPane>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" percentWidth="33.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
                                        <children>
-                                          <Label text="Disc size" textFill="#0ca2e0">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <RadioButton fx:id="sSmall" mnemonicParsing="false" text="Small">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="discSize" />
-                                             </toggleGroup>
-                                          </RadioButton>
-                                          <RadioButton fx:id="sNormal" mnemonicParsing="false" text="Normal" toggleGroup="$discSize" />
-                                          <RadioButton fx:id="sLarge" mnemonicParsing="false" text="Large" toggleGroup="$discSize" />
-                                          <Label text="Margins" textFill="#0ca2e0">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <RadioButton fx:id="mSharp" mnemonicParsing="false" text="Sharp and well-defined">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="margins" />
-                                             </toggleGroup>
-                                          </RadioButton>
-                                          <RadioButton fx:id="mHazy" mnemonicParsing="false" text="Hazy" toggleGroup="$margins" />
-                                          <RadioButton fx:id="mElevated" mnemonicParsing="false" text="Elevated" toggleGroup="$margins" />
-                                          <Label text=" Neuro retinal rim color" textFill="#0ca2e0">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <RadioButton fx:id="rPink" mnemonicParsing="false" text="Pink">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="rimColor" />
-                                             </toggleGroup>
-                                          </RadioButton>
-                                          <RadioButton fx:id="rPale" mnemonicParsing="false" text="Pale" toggleGroup="$rimColor" />
-                                          <RadioButton fx:id="rHyperemia" mnemonicParsing="false" text="Hyperemia" toggleGroup="$rimColor" />
-                                          <Label text="Cup" textFill="#0ca2e0">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <GridPane>
+                                          <Label text="First name" />
+                                          <TextField fx:id="pName" GridPane.columnIndex="1" />
+                                          <Label text="Indication" GridPane.rowIndex="4" />
+                                          <Label text="Gender" GridPane.rowIndex="3" />
+                                          <ComboBox fx:id="pGender" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label text="Age" GridPane.rowIndex="2" />
+                                          <TextField fx:id="pAge" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label text="Eye" GridPane.rowIndex="5" />
+                                          <ComboBox fx:id="pEye" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <ComboBox fx:id="fundusIndication" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label text="Last name" GridPane.rowIndex="1" />
+                                          <TextField fx:id="lastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                                    <ButtonBar prefHeight="41.0" prefWidth="630.0">
+                                      <buttons>
+                                        <Button fx:id="saveBtn" mnemonicParsing="false" onAction="#savePatientInfos" prefHeight="30.0" prefWidth="141.0" text="Save" />
+                                      </buttons>
+                                    </ButtonBar>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="onh" text="Optic Nerve Head">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.5" prefHeight="484.0" prefWidth="700.0" VBox.vgrow="ALWAYS">
+                                       <items>
+                                          <VBox maxHeight="1.7976931348623157E308" prefWidth="600.0" spacing="10.0">
                                              <children>
-                                                <Label text="Vertical C/D ratio" />
-                                                <TextField fx:id="vRatio" promptText="c/d  in decimal e.g 0.2" GridPane.columnIndex="1" />
-                                                <Label text="Horizontal C/D ratio" GridPane.rowIndex="1" />
-                                                <TextField fx:id="hRatio" promptText="c/d  in decimal e.g 0.2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                <Label text="Disc size" textFill="#0ca2e0">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <RadioButton fx:id="sSmall" mnemonicParsing="false" text="Small">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="discSize" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="sNormal" mnemonicParsing="false" text="Normal" toggleGroup="$discSize" />
+                                                <RadioButton fx:id="sLarge" mnemonicParsing="false" text="Large" toggleGroup="$discSize" />
+                                                <Label text="Margins" textFill="#0ca2e0">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <RadioButton fx:id="mSharp" mnemonicParsing="false" text="Sharp and well-defined">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="margins" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="mHazy" mnemonicParsing="false" text="Hazy" toggleGroup="$margins" />
+                                                <RadioButton fx:id="mElevated" mnemonicParsing="false" text="Elevated" toggleGroup="$margins" />
+                                                <Label text=" Neuro retinal rim color" textFill="#0ca2e0">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <RadioButton fx:id="rPink" mnemonicParsing="false" text="Pink">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="rimColor" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="rPale" mnemonicParsing="false" text="Pale" toggleGroup="$rimColor" />
+                                                <RadioButton fx:id="rHyperemia" mnemonicParsing="false" text="Hyperemia" toggleGroup="$rimColor" />
+                                                <Label text="Cup" textFill="#0ca2e0">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <GridPane>
+                                                   <children>
+                                                      <Label text="Vertical C/D ratio" />
+                                                      <TextField fx:id="vRatio" promptText="c/d  in decimal e.g 0.2" GridPane.columnIndex="1" />
+                                                      <Label text="Horizontal C/D ratio" GridPane.rowIndex="1" />
+                                                      <TextField fx:id="hRatio" promptText="c/d  in decimal e.g 0.2" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                   </children>
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                </GridPane>
+                                                <CheckBox fx:id="cupAssymetry" mnemonicParsing="false" text="Asymmetry &gt; 0.2 between OD and OS" />
                                              </children>
-                                             <columnConstraints>
-                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                                             </columnConstraints>
-                                             <rowConstraints>
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                             </rowConstraints>
-                                          </GridPane>
-                                          <CheckBox fx:id="cupAssymetry" mnemonicParsing="false" text="Asymmetry &gt; 0.2 between OD and OS" />
-                                       </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox fx:id="discOtherSigns" prefHeight="200.0" prefWidth="100.0" spacing="10.0" stylesheets="@../sources/grid.css">
+                                             <children>
+                                                <Label text="Others signs" textFill="#0ca2e0">
+                                                   <font>
+                                                      <Font name="System Bold" size="13.0" />
+                                                   </font>
+                                                </Label>
+                                                <CheckBox mnemonicParsing="false" text="Defects of RFNL">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="RNFL defects appear as darker areas (black or dark grey) compared to the surrounding healthy tissue.They often take the form of a &quot;wedge&quot; or &quot;slit&quot; that starts at the edge of the optic nerve and widens as it moves outward." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Undermining of vessels ">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="The excavation (cup) doesn't just go down; it eats away at the sides underneath the neuroretinal rim. Imagine a cliff where the ocean has eroded the base. The top of the cliff now &quot;overhangs&quot; a hollow space. That hollow space is the undermining." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Baring of vessels">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="A vessel no longer touches the neural rim because the tissue underneath has eroded. It looks like it's &quot;floating&quot; over a space." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Nasal displacement">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="The movement of the central retinal vessels toward the nasal side (toward the nose) of the optic disc." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Bayoneting sign">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="As a vessel comes from the retina toward the center of the nerve, it reaches the edge of the cup and has to make a sharp, double turn to follow the new, hollowed-out shape of the nerve.The vessel appears to &quot;disappear&quot; under the overhanging rim and then reappears at the bottom of the cup, shifted to one side" wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Laminar dot sign">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Small greyish dots at the bottom of the optic cup." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Beta zone">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="A region of complete atrophy of the Retinal Pigment Epithelium (RPE) and the choriocapillaris. It sits inside Zone Alpha, touching the margin of the optic disc" wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Alpha zone">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Irregular pigmentation of the RPE at the outer periphery of the optic disc.- (dark and light mottling of the RPE)." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Disc hemorrhage">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="t typically looks like a tiny red splinter, flame, or streak at the edge of the optic nerve head (the disc).  It is most frequently found in the infero-temporal or supero-temporal sectors." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="ISNT Rule violation">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="In a healthy eye, the thickness of the neuroretinal rim (the pinkish tissue of the optic disc) follows a specific hierarchy from thickest to thinnest: I – Inferior (Thickest) S – Superior N – Nasal T – Temporal (Thinnest)" wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Notching">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Focal, localized loss of the neuroretinal rim. - A &quot;bite-like&quot; defect or a notch in the rim localized at Inferior-temporal or superior-temporal poles." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Neovascularisation on the disc">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Unlike a simple bleed, NVD looks like a delicate, disorganized &quot;frond&quot; or meshwork of tiny, loops of vessels." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </items>
+                                    </SplitPane>
+                                    <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                                       <buttons>
+                                          <Button fx:id="onhBtn" mnemonicParsing="false" onAction="#saveOnhResults" text="Save" />
+                                       </buttons>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets right="20.0" />
                                        </padding>
-                                    </VBox>
-                                    <VBox fx:id="discOtherSigns" prefHeight="200.0" prefWidth="100.0" spacing="10.0" stylesheets="@../sources/grid.css">
-                                       <children>
-                                          <Label text="Others signs" textFill="#0ca2e0">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <CheckBox mnemonicParsing="false" text="Defects of RFNL  (Red free)">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="RNFL defects appear as darker areas (black or dark grey) compared to the surrounding healthy tissue.They often take the form of a &quot;wedge&quot; or &quot;slit&quot; that starts at the edge of the optic nerve and widens as it moves outward." wrapText="true">
+                                    </ButtonBar>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="macula" text="Macula">
+                           <content>
+                              <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <SplitPane dividerPositions="0.5" prefHeight="484.0" prefWidth="714.0" VBox.vgrow="ALWAYS">
+                                       <items>
+                                          <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                             <children>
+                                                <Label text="Physiological Landmarks &amp; Contour" textFill="#0ca2e0">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="System Bold" size="13.0" />
                                                    </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Undermining of vessels ">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="The excavation (cup) doesn't just go down; it eats away at the sides underneath the neuroretinal rim. Imagine a cliff where the ocean has eroded the base. The top of the cliff now &quot;overhangs&quot; a hollow space. That hollow space is the undermining." wrapText="true">
+                                                </Label>
+                                                <Label text="Foveal Reflex" textFill="#0ca2e0">
+                                                   <tooltip>
+                                                      <Tooltip text="A bright, glistening &quot;white dot.&quot;" wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="System Bold" size="13.0" />
                                                    </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Baring of vessels">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="A vessel no longer touches the neural rim because the tissue underneath has eroded. It looks like it's &quot;floating&quot; over a space." wrapText="true">
+                                                </Label>
+                                                <RadioButton fx:id="refPresent" mnemonicParsing="false" text="Present">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="freflex" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="refAbsent" mnemonicParsing="false" text="Absent" toggleGroup="$freflex" />
+                                                <Label text="Retinal Profile" textFill="#0ca2e0">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="System Bold" size="13.0" />
                                                    </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Nasal displacement">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="The movement of the central retinal vessels toward the nasal side (toward the nose) of the optic disc." wrapText="true">
+                                                </Label>
+                                                <RadioButton fx:id="pFlat" mnemonicParsing="false" text="Flat">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="rprofile" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="pElevation" mnemonicParsing="false" text="Elevation" toggleGroup="$rprofile" />
+                                                <RadioButton fx:id="pDepression" mnemonicParsing="false" text="Depression" toggleGroup="$rprofile" />
+                                                <Label text="ILM Reflex" textFill="#0ca2e0">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="A bright, pinpoint, or oval glint of light reflecting off the central macula (fovea). It is very sharp and prominent in children and young adults because their ILM is very smooth. It naturally fades or becomes &quot;dull&quot; with age." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="System Bold" size="13.0" />
                                                    </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Bayoneting sign">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="As a vessel comes from the retina toward the center of the nerve, it reaches the edge of the cup and has to make a sharp, double turn to follow the new, hollowed-out shape of the nerve.The vessel appears to &quot;disappear&quot; under the overhanging rim and then reappears at the bottom of the cup, shifted to one side" wrapText="true">
+                                                </Label>
+                                                <RadioButton fx:id="iCellophane" mnemonicParsing="false" text="Cellophane metallic glint ">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="ireflex" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="iSatin" mnemonicParsing="false" text="Satin-like sheen" toggleGroup="$ireflex" />
+                                                <Label text="PVD" textFill="#0ca2e0">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="System Bold" size="13.0" />
                                                    </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Laminar dot sign">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Small greyish dots at the bottom of the optic cup." wrapText="true">
+                                                </Label>
+                                                <RadioButton fx:id="pvdAbsent" mnemonicParsing="false" text="Absent">
+                                                   <toggleGroup>
+                                                      <ToggleGroup fx:id="pvd" />
+                                                   </toggleGroup>
+                                                </RadioButton>
+                                                <RadioButton fx:id="pvdTraction" mnemonicParsing="false" text="Partial with traction" toggleGroup="$pvd" />
+                                                <RadioButton fx:id="pvdPartial" mnemonicParsing="false" text="Partial" toggleGroup="$pvd" />
+                                                <RadioButton fx:id="pvdComplete" mnemonicParsing="false" text="Complete" toggleGroup="$pvd">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="The Weiss Ring: This is the definitive clinical sign. It is a circular, translucent floating opacity that represents the detached attachment point from the optic nerve head." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </RadioButton>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                          <VBox fx:id="maculaChecks" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                             <children>
+                                                <Label text="Edema / Liquid" textFill="#0ca2e0">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="System Bold" size="13.0" />
                                                    </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Beta zone">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="A region of complete atrophy of the Retinal Pigment Epithelium (RPE) and the choriocapillaris. It sits inside Zone Alpha, touching the margin of the optic disc" wrapText="true">
+                                                </Label>
+                                                <CheckBox mnemonicParsing="false" text="Cystoid spaces">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="The observation of Cystoid Macular Edema (CME) on fundoscopy often shows a thickened macula with a loss of the normal foveal reflex. In advanced cases, fluid accumulates in a characteristic 'flower petal' (petaloid) pattern due to the arrangement of Henle’s nerve fibers." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Serous Retinal Detachment">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text=" A serous retinal detachment often presents as a smooth, dome-shaped bubble. A major clinical sign is shifting fluid, where the detachment changes position based on the patient's head posture due to simple gravity." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Pigment Epithelial Detachment">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Appears as a well-demarcated, dome-shaped elevation. It often has a translucent or orange-yellow hue and may &quot;glow&quot; or transilluminate when the light beam is placed over it. Drusenoid PED: Typically presents as a yellow-white elevation with scalloped or &quot;irregular&quot; borders. You might see a &quot;triradiate&quot; or stellate pattern of brownish pigment on its surface. Fibrovascular PED: Often looks more irregular and less &quot;smooth&quot; than serous types. Look for signs of activity like yellow exudates or subretinal hemorrhage (blood) at the margins" wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <Label text="Deposits  &amp; Atrophy" textFill="#0ca2e0">
                                                    <font>
-                                                      <Font size="14.0" />
+                                                      <Font name="System Bold" size="13.0" />
                                                    </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Alpha zone">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Irregular pigmentation of the RPE at the outer periphery of the optic disc.- (dark and light mottling of the RPE)." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Disc hemorrage">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="t typically looks like a tiny red splinter, flame, or streak at the edge of the optic nerve head (the disc).  It is most frequently found in the infero-temporal or supero-temporal sectors." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="ISNT Rule  violation">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="In a healthy eye, the thickness of the neuroretinal rim (the pinkish tissue of the optic disc) follows a specific hierarchy from thickest to thinnest: I – Inferior (Thickest) S – Superior N – Nasal T – Temporal (Thinnest)" wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Notching">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Focal, localized loss of the neuroretinal rim. - A &quot;bite-like&quot; defect or a notch in the rim localized at Inferior-temporal or superior-temporal poles." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Neovascularisation on the disc">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Unlike a simple bleed, NVD looks like a delicate, disorganized &quot;frond&quot; or meshwork of tiny, loops of vessels." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                       </children>
+                                                </Label>
+                                                <CheckBox mnemonicParsing="false" text="Hard drusens">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Yellow-white extracellular deposits that accumulate between the retinal pigment epithelium (RPE) and Bruch’s membrane. Small (&lt;63 µm), round, and discrete with very sharp borders" wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Soft drusens ">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Yellow-white extracellular deposits that accumulate between the retinal pigment epithelium (RPE) and Bruch’s membrane. Larger (&gt;125 µm), amorphous, and pale yellow with fuzzy or indistinct borders." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Cuticular drusens ">
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Yellow-white extracellular deposits that accumulate between the retinal pigment epithelium (RPE) and Bruch’s membrane. Numerous tiny, tiny &quot;pinpoint&quot; yellow lesions." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Hard Exudates">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Small, yellowish-white lipid deposits with sharp margins that form within the retinal layers. Unlike drusen (which are beneath the RPE), hard exudates are intraretinal, typically located in the outer plexiform layer." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Geographic atrophy">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Sharply Demarcated Areas: Patches of the retina appear as &quot;islands&quot; of depigmentation with very clear, well-defined borders. Visible Choroidal Vessels: Because the pigmented RPE layer is missing, you can easily see the larger, underlying choroidal blood vessels through the atrophic patch. Color Change: These areas typically appear lighter, pale pink, or yellowish-white compared to the surrounding healthy retina." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Pigment clumping" />
+                                                <CheckBox mnemonicParsing="false" text="Macular Nevus">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="Typically appears as a flat or minimally elevated, slate-gray to brown lesion located deep within the choroid. It is characterized by well-demarcated but soft borders that blend into the surrounding fundus, often reaching a diameter of several millimeters." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Subretinal Hemorrhage">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="bright red to deep maroon lesion with irregular, scalloped, or diffuse borders. Because the blood is located deep to the neurosensory retina, the retinal vasculature is clearly visible passing over the surface of the hemorrhage" wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Full thickness macular hole ">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text=" Appears as a well-defined, round, red spot in the center of the macula. A surrounding grayish halo or &quot;cuff&quot; indicates fluid that has seeped under the edges of the hole, causing a shallow local detachment." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                </CheckBox>
+                                                <CheckBox mnemonicParsing="false" text="Lamellar Hole">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                   <tooltip>
+                                                      <Tooltip maxWidth="350.0" text="a partial-thickness defect where the inner layers of the fovea are lost or split, but the outer retinal layers (including photoreceptors) remain intact. IIt typically appears as a round or oval reddish lesion at the center of the macula, slightly darker than the surrounding tissue." wrapText="true">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Tooltip>
+                                                   </tooltip>
+                                                </CheckBox>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                             </padding>
+                                          </VBox>
+                                       </items>
+                                    </SplitPane>
+                                    <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                                       <buttons>
+                                          <Button fx:id="maculaBtn" mnemonicParsing="false" onAction="#saveMaculaResults" text="Save" />
+                                       </buttons>
                                        <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                          <Insets right="20.0" />
                                        </padding>
-                                    </VBox>
-                                 </items>
-                              </SplitPane>
-                              <ButtonBar prefHeight="40.0" prefWidth="200.0">
-                                <buttons>
-                                  <Button fx:id="onhBtn" mnemonicParsing="false" onAction="#saveOnhResults" text="Save" />
-                                </buttons>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
+                                    </ButtonBar>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="retina" text="Overall retina">
+                           <content>
+                              <VBox fx:id="retinaBox" maxHeight="1.7976931348623157E308" prefHeight="227.0" prefWidth="600.0" spacing="10.0">
                                  <padding>
-                                    <Insets right="20.0" />
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
                                  </padding>
-                              </ButtonBar>
-                           </children>
-                        </VBox>
-                     </content>
-						</Tab>
-						<Tab fx:id="macula" text="Macula">
-                     <content>
-                        <VBox prefHeight="200.0" prefWidth="100.0">
+                                 <children>
+                                    <Label text="Background" textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Transparency" />
+                                          <RadioButton fx:id="Tnormal" mnemonicParsing="false" text="Normal" GridPane.columnIndex="1">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="transparency" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="tHazy" mnemonicParsing="false" text="Hazy" toggleGroup="$transparency" GridPane.columnIndex="3">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="A hazy fundus background refers to a loss of detail and clarity when viewing the back of the eye. This &quot;haze&quot; is typically caused by media opacities—cloudiness in the structures light must pass through to reach the retina—rather than a disease of the retina itself" wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </RadioButton>
+                                       </children>
+                                    </GridPane>
+                                    <GridPane>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Color" />
+                                          <RadioButton fx:id="cNormal" mnemonicParsing="false" text="Normal" GridPane.columnIndex="1">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="bcolor" />
+                                             </toggleGroup>
+                                          </RadioButton>
+                                          <RadioButton fx:id="cPale" mnemonicParsing="false" text="Pale" toggleGroup="$bcolor" GridPane.columnIndex="2">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="A pale color of the retina often indicates either a loss of normal blood flow or an accumulation of abnormal materials within the retinal layers. This appearance is frequently as retinal opacification or whitening rather than simple &quot;paleness&quot;" wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </RadioButton>
+                                          <RadioButton fx:id="cTigroid" mnemonicParsing="false" text="Tigroid" toggleGroup="$bcolor" GridPane.columnIndex="3">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="striped or mosaic-like appearance of the eye's posterior. This color pattern occurs when the Retinal Pigment Epithelium (RPE) is thin or lacks enough pigment, allowing the darker, underlying choroidal blood vessels to become visible. It typically appears as dark, polygonal areas or stripes separated by the reddish/orange lines of the choroidal vessels." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </RadioButton>
+                                       </children>
+                                    </GridPane>
+                                    <Label text="Diabetic / ischemic vascular signs" textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane fx:id="vascGrid">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <CheckBox fx:id="anevrismCheck" mnemonicParsing="false" text="Microaneurysms">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="Small, discrete red dots on the surface of the retina. They are typically the earliest visible sign of diabetic retinopathy. They look like tiny, round, or circular red dots. While most are bright red, some may appear yellowish if they have undergone internal changes like hyalinization." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <CheckBox fx:id="woolCheck" mnemonicParsing="false" text="Cotton Wool Spots" GridPane.rowIndex="1">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="Also called &quot;soft exudates&quot;,  they present as superficial, whitish-gray patches with fuzzy, ill-defined borders that resemble small tufts of cotton or clouds. Unlike hard exudates, they are opaque and slightly elevated because they occur in the nerve fiber layer, often appearing to obscure underlying retinal vessels. " wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <CheckBox fx:id="dotCheck" mnemonicParsing="false" text="Dot and Blot hemorrhage" GridPane.rowIndex="2">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="Dark red, circular, or irregular &quot;blobs&quot; located deep within the retinal tissue. Their characteristic rounded shape occurs because the escaped blood is physically compressed by the densely packed neurons of the inner nuclear and outer plexiform layers." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <TextField fx:id="anevrismText" promptText="Type the number and quadrant " GridPane.columnIndex="1" />
+                                          <TextField fx:id="woolText" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="dotText" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <CheckBox fx:id="neoCheck" mnemonicParsing="false" text="Neovascularisation else where" GridPane.rowIndex="4">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="Appears as delicate, disorganized &quot;fronds&quot; or lacy networks of tiny, irregular blood vessels branching from existing retinal veins. These new vessels are typically found more than one disc diameter away from the optic nerve head and often grow along the surface of the retina or extend into the vitreous." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <TextField fx:id="neoText" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <CheckBox fx:id="flameCheck" mnemonicParsing="false" text="Flame-Shaped Hemorrhages" GridPane.rowIndex="3">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text=" Bright red, splinter-like streaks within the superficial nerve fiber layer (RNFL)." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <TextField fx:id="flameText" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <CheckBox fx:id="boatCheck" mnemonicParsing="false" text="Boat-shaped/Preretinal hemorrhage" GridPane.rowIndex="5">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="Large, distinct pools of bright red blood trapped between the retina and the vitreous (subhyaloid space). Because the blood is not confined by retinal tissue, gravity causes the red blood cells to settle at the bottom, creating a characteristic straight horizontal top border and a curved, rounded bottom." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <CheckBox fx:id="beadingCheck" mnemonicParsing="false" text="Venous beading / looping" GridPane.rowIndex="6">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="Structural venous deformities that signify severe retinal ischemia and a high risk of progression to proliferative disease. Venous beading is characterized by focal, irregular areas of dilation and narrowing, giving the vessel a &quot;string of sausages&quot; or beaded appearance, while venous looping occurs when a vein deviates into a sharp, omega-shaped or circular turn." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <CheckBox fx:id="irmaCheck" mnemonicParsing="false" text="IRMA" GridPane.rowIndex="7">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="Fine, tortuous, &quot;wiry&quot; red lines that form a complex, lacy network within the retinal tissue. These vessels are typically found in the mid-periphery, often adjacent to areas of capillary non-perfusion or near cotton wool spots, acting as intraretinal shunts. Unlike the delicate &quot;fronds&quot; of neovascularization, IRMA vessels have sharper, better-defined outlines, are slightly larger in caliber, and are strictly contained within the retina—they do not cross over major retinal vessels or grow into the vitreous." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <TextField fx:id="neoText1" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <TextField fx:id="neoText4" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <TextField fx:id="neoText41" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                       </children>
+                                    </GridPane>
+                                    <Label text="Others signs" textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane fx:id="embGrid">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <CheckBox fx:id="emboliCheck" mnemonicParsing="false" text="Emboli">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="Small, distinct particles trapped within the retinal arterioles, typically categorized into three main types based on their appearance and source. Cholesterol emboli (Hollenhorst plaques) are the most common and appear as highly refractile, bright yellow or orange crystals usually located at vessel bifurcations; they often originate from carotid artery atherosclerosis. Calcific emboli are dull, chalky white, and larger, typically lodging in major vessels near the optic disc and suggesting a source from calcified heart valves. Platelet-fibrin emboli present as dull, grayish-white, elongated &quot;plugs&quot; that may move through the circulation or appear in &quot;showers,&quot; often associated with mural thrombi in the carotid system or heart." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <CheckBox fx:id="infectiousCheck" mnemonicParsing="false" text="Infectious / inflammatory lesions" GridPane.rowIndex="1">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="Typically present as creamy yellow or whitish patches on the retina, with their appearance varying significantly based on whether the condition is active or chronic. Active Lesions: These appear as creamy, yellowish-white patches with fuzzy, blurred borders due to surrounding retinal edema. They are often accompanied by &quot;vitritis&quot;—inflammatory cells in the vitreous that create a &quot;haze&quot; or &quot;headlight in the fog&quot; effect. Inactive/Healed Lesions: Chronic lesions develop into sharply demarcated scars with distinct borders. These scars often show pigmentation (black clumping) at the edges and areas of &quot;punched-out&quot; atrophy where the underlying choroidal vessels may become visible." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <CheckBox fx:id="cnevusCheck" mnemonicParsing="false" text="Choroid nevus" GridPane.rowIndex="2">
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="A flat or minimally elevated, well-defined lesion with a characteristic slate-gray or brown color and feathered borders. Key indicators of a benign, long-standing lesion include the presence of overlying drusen and the absence of symptoms like flashes or vision loss. To differentiate it from a melanoma, clinicians look for &quot;red flag&quot; features such as a thickness greater than 2 mm, the presence of subretinal fluid, or the appearance of orange pigment (lipofuscin) on the surface." wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </CheckBox>
+                                          <TextField fx:id="emboliText" promptText="Type the type of emboli and where it's seen" GridPane.columnIndex="1" />
+                                          <TextField fx:id="infectiousText" promptText="Type the kind of lesion and quadrant" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <TextField fx:id="cvenusText" promptText="Type the quadrant" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                    </GridPane>
+                                    <Region prefHeight="17.0" prefWidth="610.0" VBox.vgrow="ALWAYS" />
+                                    <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                                       <buttons>
+                                          <Button fx:id="retinaBtn" mnemonicParsing="false" onAction="#saveRetinaResults" text="Save" />
+                                       </buttons>
+                                    </ButtonBar>
+                                 </children>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="vessels" text="Vessels">
+                           <content>
+                              <VBox fx:id="vesselBox" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+                                 <children>
+                                    <Label text="Arterial light reflex" textFill="#0ca2e0">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="The arterial light reflex (ALR) is the normal reflection of light off the surface of retinal arterioles during fundoscopy. In a healthy eye, the central light streak is thin and bright, usually covering about 1/4 to 1/3 of the total diameter of the vessel." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="nLight" mnemonicParsing="false" text="Normal">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="arterialR" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="copperLight" mnemonicParsing="false" text="Copper wiring" toggleGroup="$arterialR">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Copper wiring is a clinical finding on fundoscopy where the retinal arterioles take on a burnished, metallic orange-yellow appearance. The normal bright-red color of the arteriole is replaced by a reddish-brown or orange-yellow metallic sheen." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                    </RadioButton>
+                                    <RadioButton fx:id="silverLight" mnemonicParsing="false" text="Silver wiring" toggleGroup="$arterialR">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Silver wiring - The vessel loses its normal red or orange-yellow color and appears as a solid white or silver cord. The central light reflex, which is thin in healthy vessels and broad/metallic in &quot;copper wiring,&quot; becomes so wide that it covers the entire width of the vessel." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                    </RadioButton>
+                                    <Label text="Caliber" textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <GridPane>
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="A/V ratio">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <tooltip>
+                                                <Tooltip maxWidth="350.0" text="The standard A/V ratio is typically 2:3. This means that a healthy retinal artery is roughly two-thirds the width of its accompanying vein. Arteries appear thinner and lighter in color (bright red), while veins are wider and darker (deep red)" wrapText="true">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                          </Label>
+                                          <TextField fx:id="avRatio" GridPane.columnIndex="1" />
+                                       </children>
+                                    </GridPane>
+                                    <CheckBox fx:id="aNarrowing" mnemonicParsing="false" text="Arterial narrowing" />
+                                    <CheckBox fx:id="vDilation" mnemonicParsing="false" text="Venous dilation" />
+                                    <Label text="A/V crossings" textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="gunnCheck" mnemonicParsing="false" text="Gunn sign">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Gunn sign (also known as arteriovenous nicking or nipping) is a hallmark of chronic hypertensive retinopathy. It is characterized by the tapering or apparent narrowing of a retinal vein on either side of the point where it is crossed by a thickened, sclerotic arteriole. This &quot;pinched&quot; appearance occurs because the hardened arterial wall, along with a shared connective tissue sheath, compresses the underlying vein and obscures the blood column within it." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                    </CheckBox>
+                                    <CheckBox fx:id="salusCheck" mnemonicParsing="false" text="Salus sign">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Salus's sign is a clinical finding on fundoscopy where a retinal vein is deflected or bent at the point where it is crossed by an artery.  Instead of the vein and artery crossing at an acute angle, the vein is pushed aside, taking on a sharp &quot;S-shaped&quot; or &quot;Z-shaped&quot; curve." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                    </CheckBox>
+                                    <CheckBox fx:id="bonnetCheck" mnemonicParsing="false" text="Bonnet sign">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Bonnet’s sign is a clinical finding where a retinal vein appears dilated or &quot;banked&quot; distal to an arteriovenous (A/V) crossing. The vein looks swollen or engorged on the side furthest from the optic disc. It often looks like blood is &quot;pooling&quot; because it cannot easily pass under the compressed crossing point." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                    </CheckBox>
+                                    <Label text="Others findings" textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="tortCheck" mnemonicParsing="false" text="Abnormal tortuosity">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Abnormal retinal vascular tortuosity refers to an excessive twisting, coiling, or undulating appearance of the retinal arteries or veins on fundoscopy. While some degree of vessel curvature is normal, extreme tortuosity often signals underlying ocular or systemic disease." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                    </CheckBox>
+                                    <CheckBox fx:id="sheathCheck" mnemonicParsing="false" text="Sheathing">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Sheathing in fundoscopy refers to a white or grayish-white coating that appears to surround the retinal blood vessels. It is generally a sign of either inflammation or advanced vascular sclerosis. Often looks like a &quot;white cuff&quot; or fuzzy &quot;frosting&quot; around the vessel." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                    </CheckBox>
+                                    <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                                    <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                                       <buttons>
+                                          <Button fx:id="vesselsBtn" mnemonicParsing="false" onAction="#saveVesselsResults" text="Save" />
+                                       </buttons>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </ButtonBar>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="periphery" text="Periphery">
+                           <content>
+                              <VBox fx:id="pBox" prefHeight="200.0" prefWidth="100.0" spacing="7.0">
+                                 <children>
+                                    <Label text="Scleral indentation" textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Ora serrata " textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="oraY" mnemonicParsing="false" text="Visible 360">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="serrata" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="oraN" mnemonicParsing="false" text="Limited visibility" toggleGroup="$serrata" />
+                                    <Label text="Vitreous base " textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <RadioButton fx:id="vbaseY" mnemonicParsing="false" text="Normal">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="vitreousb" />
+                                       </toggleGroup>
+                                    </RadioButton>
+                                    <RadioButton fx:id="vbaseN" mnemonicParsing="false" text="Abnormal" toggleGroup="$vitreousb" />
+                                    <Label text="Benign degeneration" textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="pavCheck" mnemonicParsing="false" text="Pavingstone">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Lesions appear as discrete, rounded, pale areas that resemble a stone-paved street. They often have a thin pigmented border and may show large choroidal blood vessels running underneath them. It is almost exclusively found in the far periphery of the retina, most frequently in the inferior (bottom) quadrants." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox fx:id="wwopCheck" mnemonicParsing="false" text="White-without-pressure">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Common, typically benign peripheral retinal finding where a portion of the retina appears translucent white to gray. It often presents as a flat, whitish film with a sharply demarcated posterior border. This border sometimes has a reddish-brown or &quot;dark&quot; appearance, which can be mistaken for a retinal tear." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <Label text="High-risk degenerations" textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="latticeCheck" mnemonicParsing="false" text="Lattice">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Common peripheral retinal condition characterized by localized thinning of the retinal tissue, often accompanied by a &quot;cross-hatching&quot; pattern of whitened blood vessels. It is the most important visible lesion predisposing to retinal tears and detachment." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox fx:id="tuftCheck" mnemonicParsing="false" text="Vitreoretinal tuft">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Small, congenital projections of glial and retinal tissue that extend into the vitreous cavity. They represent focal areas of abnormally strong adhesion between the retina and the vitreous gel. They typically appear chalky white or grayish-white. Unlike retinal tears, which are often translucent, tufts are opaque due to the presence of glial (scar-like) tissue." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox fx:id="schisisCheck" mnemonicParsing="false" text="Retinoschisis">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A smooth, dome-shaped, and transparent elevation of the inner retinal layers. It lacks the corrugations or surface wrinkling often seen in retinal detachments." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <Label text="Acute lesions" textFill="#0ca2e0">
+                                       <font>
+                                          <Font name="System Bold" size="13.0" />
+                                       </font>
+                                    </Label>
+                                    <CheckBox fx:id="tearCheck" mnemonicParsing="false" text="Tear">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Full-thickness break in the neurosensory retina that typically occurs when the vitreous gel exerts acute traction on the retinal surface, often during a posterior vitreous detachment. On fundoscopy, the most characteristic finding is a horseshoe-shaped (U-shaped) flap of tissue, with its apex pointing toward the center of the eye and its base directed toward the periphery. " wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox fx:id="holeCheck" mnemonicParsing="false" text="Atrophic hole">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A small, well-circumscribed, and typically round reddish lesion in the peripheral retina. The red color is a result of the underlying choroidal vasculature being visible through the full-thickness retinal break." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox fx:id="detCheck" mnemonicParsing="false" text="Retinal detachment">
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="A sight-threatening ocular emergency where the neurosensory retina separates from the underlying retinal pigment epithelium, cutting off its vital blood and nutrient supply. The detached retina typically appears as an elevated, opaque, grayish-white membrane that has lost its normal transparent, orange-red reflex. " wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor></CheckBox>
+                                    <CheckBox fx:id="pNeoCheck" mnemonicParsing="false" text="Peripheral neovascularization">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <tooltip>
+                                          <Tooltip maxWidth="350.0" text="Growth of fragile, abnormal new blood vessels in the outer edges of the retina, typically in response to ischemia.  Abnormal clusters or networks of new blood vessels growing at the vitreoretinal interface." wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Tooltip>
+                                       </tooltip>
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </CheckBox>
+                                    <Region prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                                    <ButtonBar prefHeight="40.0" prefWidth="200.0">
+                                       <buttons>
+                                          <Button fx:id="peripheryBtn" mnemonicParsing="false" onAction="#savePeripheryResults" prefHeight="25.0" prefWidth="185.0" text="Save" />
+                                       </buttons>
+                                    </ButtonBar>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                                 </padding>
+                              </VBox>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </TabPane>
+               </center>
+               <bottom>
+                  <VBox prefHeight="37.0" prefWidth="800.0" style="-fx-background-color: #0CA2E0;" BorderPane.alignment="CENTER">
+                     <children>
+                        <GridPane>
+                           <columnConstraints>
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                              <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                           </rowConstraints>
                            <children>
-                              <SplitPane dividerPositions="0.5" prefHeight="484.0" prefWidth="714.0">
-                                 <items>
-                                    <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-                                       <children>
-                                          <Label text="Physiological Landmarks &amp; Contour" textFill="#0ca2e0">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <Label text="Foveal Reflex" textFill="#0ca2e0">
-                                             <tooltip>
-                                                <Tooltip text="A bright, glistening &quot;white dot.&quot;" wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <RadioButton fx:id="refPresent" mnemonicParsing="false" text="Present">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="freflex" />
-                                             </toggleGroup>
-                                          </RadioButton>
-                                          <RadioButton fx:id="refAbsent" mnemonicParsing="false" text="Absent" toggleGroup="$freflex" />
-                                          <Label text="Retinal Profile" textFill="#0ca2e0">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <RadioButton fx:id="pFlat" mnemonicParsing="false" text="Flat">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="rprofile" />
-                                             </toggleGroup>
-                                          </RadioButton>
-                                          <RadioButton fx:id="pElevation" mnemonicParsing="false" text="Elevation" toggleGroup="$rprofile" />
-                                          <RadioButton fx:id="pDepression" mnemonicParsing="false" text="Depression" toggleGroup="$rprofile" />
-                                          <Label text="ILM Reflex" textFill="#0ca2e0">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="A bright, pinpoint, or oval glint of light reflecting off the central macula (fovea). It is very sharp and prominent in children and young adults because their ILM is very smooth. It naturally fades or becomes &quot;dull&quot; with age." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <RadioButton fx:id="iCellophane" mnemonicParsing="false" text="Cellophane metallic glint ">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="ireflex" />
-                                             </toggleGroup>
-                                          </RadioButton>
-                                          <RadioButton fx:id="iSatin" mnemonicParsing="false" text="Satin-like sheen" toggleGroup="$ireflex" />
-                                          <Label text="PVD" textFill="#0ca2e0">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <RadioButton fx:id="pvdAbsent" mnemonicParsing="false" text="Absent">
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="pvd" />
-                                             </toggleGroup>
-                                          </RadioButton>
-                                          <RadioButton fx:id="pvdTraction" mnemonicParsing="false" text="Partial with traction" toggleGroup="$pvd" />
-                                          <RadioButton fx:id="pvdPartial" mnemonicParsing="false" text="Partial" toggleGroup="$pvd" />
-                                          <RadioButton fx:id="pvdComplete" mnemonicParsing="false" text="Complete" toggleGroup="$pvd">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="The Weiss Ring: This is the definitive clinical sign. It is a circular, translucent floating opacity that represents the detached attachment point from the optic nerve head." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </RadioButton>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                    </VBox>
-                                    <VBox fx:id="maculaChecks" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-                                       <children>
-                                          <Label text="Edema / Liquid" textFill="#0ca2e0">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <CheckBox mnemonicParsing="false" text="Cystoid spaces">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="The observation of Cystoid Macular Edema (CME) on fundoscopy often shows a thickened macula with a loss of the normal foveal reflex. In advanced cases, fluid accumulates in a characteristic 'flower petal' (petaloid) pattern due to the arrangement of Henle’s nerve fibers." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Serous Retinal Detachment">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text=" A serous retinal detachment often presents as a smooth, dome-shaped bubble. A major clinical sign is shifting fluid, where the detachment changes position based on the patient's head posture due to simple gravity." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Pigment Epithelial Detachment">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Appears as a well-demarcated, dome-shaped elevation. It often has a translucent or orange-yellow hue and may &quot;glow&quot; or transilluminate when the light beam is placed over it. Drusenoid PED: Typically presents as a yellow-white elevation with scalloped or &quot;irregular&quot; borders. You might see a &quot;triradiate&quot; or stellate pattern of brownish pigment on its surface. Fibrovascular PED: Often looks more irregular and less &quot;smooth&quot; than serous types. Look for signs of activity like yellow exudates or subretinal hemorrhage (blood) at the margins" wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <Label text="Deposits  &amp; Atrophy" textFill="#0ca2e0">
-                                             <font>
-                                                <Font name="System Bold" size="13.0" />
-                                             </font>
-                                          </Label>
-                                          <CheckBox mnemonicParsing="false" text="Hard drusens">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Yellow-white extracellular deposits that accumulate between the retinal pigment epithelium (RPE) and Bruch’s membrane. Small (&lt;63 µm), round, and discrete with very sharp borders" wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Soft drusens ">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Yellow-white extracellular deposits that accumulate between the retinal pigment epithelium (RPE) and Bruch’s membrane. Larger (&gt;125 µm), amorphous, and pale yellow with fuzzy or indistinct borders." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Cuticular drusens ">
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Yellow-white extracellular deposits that accumulate between the retinal pigment epithelium (RPE) and Bruch’s membrane. Numerous tiny, tiny &quot;pinpoint&quot; yellow lesions." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Hard Exudates">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Small, yellowish-white lipid deposits with sharp margins that form within the retinal layers. Unlike drusen (which are beneath the RPE), hard exudates are intraretinal, typically located in the outer plexiform layer." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Geographic atrophy">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Sharply Demarcated Areas: Patches of the retina appear as &quot;islands&quot; of depigmentation with very clear, well-defined borders. Visible Choroidal Vessels: Because the pigmented RPE layer is missing, you can easily see the larger, underlying choroidal blood vessels through the atrophic patch. Color Change: These areas typically appear lighter, pale pink, or yellowish-white compared to the surrounding healthy retina." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Pigment clumping" />
-                                          <CheckBox mnemonicParsing="false" text="Macular Nevus">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="Typically appears as a flat or minimally elevated, slate-gray to brown lesion located deep within the choroid. It is characterized by well-demarcated but soft borders that blend into the surrounding fundus, often reaching a diameter of several millimeters." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Subretinal Hemorrhage">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="bright red to deep maroon lesion with irregular, scalloped, or diffuse borders. Because the blood is located deep to the neurosensory retina, the retinal vasculature is clearly visible passing over the surface of the hemorrhage" wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Full thickness macular hole ">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text=" Appears as a well-defined, round, red spot in the center of the macula. A surrounding grayish halo or &quot;cuff&quot; indicates fluid that has seeped under the edges of the hole, causing a shallow local detachment." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                          </CheckBox>
-                                          <CheckBox mnemonicParsing="false" text="Lamellar Hole">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <tooltip>
-                                                <Tooltip maxWidth="350.0" text="a partial-thickness defect where the inner layers of the fovea are lost or split, but the outer retinal layers (including photoreceptors) remain intact. IIt typically appears as a round or oval reddish lesion at the center of the macula, slightly darker than the surrounding tissue." wrapText="true">
-                                                   <font>
-                                                      <Font size="14.0" />
-                                                   </font>
-                                                </Tooltip>
-                                             </tooltip>
-                                          </CheckBox>
-                                       </children>
-                                       <padding>
-                                          <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                       </padding>
-                                    </VBox>
-                                 </items>
-                              </SplitPane>
-                              <ButtonBar prefHeight="40.0" prefWidth="200.0">
-                                 <buttons>
-                                    <Button fx:id="maculaBtn" mnemonicParsing="false" onAction="#saveMaculaResults" text="Save" />
-                                 </buttons>
-                                 <padding>
-                                    <Insets right="20.0" />
-                                 </padding>
-                              </ButtonBar>
+                              <Button fx:id="finishBtn" mnemonicParsing="false" onAction="#finishCompletionBtn" prefHeight="25.0" prefWidth="109.0" text="Finish" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
+                              <Button fx:id="changeEyeBtn" mnemonicParsing="false" onAction="#changeEye" prefHeight="25.0" prefWidth="120.0" text="Change Eye" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
                            </children>
-                        </VBox>
-                     </content>
-						</Tab>
-						<Tab fx:id="retina" text="Overall retina">
-							<content>
-								<VBox fx:id="retinaBox" maxHeight="1.7976931348623157E308" prefHeight="227.0" prefWidth="600.0" spacing="10.0">
-									<padding>
-										<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-									</padding>
-									<children>
-										<Label text="Background" textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font></Label>
-										<GridPane>
-											<columnConstraints>
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-											</columnConstraints>
-											<rowConstraints>
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-											</rowConstraints>
-											<children>
-												<Label text="Transparency" />
-												<RadioButton fx:id="Tnormal" mnemonicParsing="false" text="Normal" GridPane.columnIndex="1">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="transparency" />
-                                       </toggleGroup></RadioButton>
-												<RadioButton fx:id="tHazy" mnemonicParsing="false" text="Hazy" toggleGroup="$transparency" GridPane.columnIndex="3">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="A hazy fundus background refers to a loss of detail and clarity when viewing the back of the eye. This &quot;haze&quot; is typically caused by media opacities—cloudiness in the structures light must pass through to reach the retina—rather than a disease of the retina itself" wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</RadioButton>
-											</children>
-										</GridPane>
-										<GridPane>
-											<columnConstraints>
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-											</columnConstraints>
-											<rowConstraints>
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-											</rowConstraints>
-											<children>
-												<Label text="Color" />
-												<RadioButton fx:id="cNormal" mnemonicParsing="false" text="Normal" GridPane.columnIndex="1">
-                                       <toggleGroup>
-                                          <ToggleGroup fx:id="bcolor" />
-                                       </toggleGroup></RadioButton>
-												<RadioButton fx:id="cPale" mnemonicParsing="false" text="Pale" toggleGroup="$bcolor" GridPane.columnIndex="2">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="A pale color of the retina often indicates either a loss of normal blood flow or an accumulation of abnormal materials within the retinal layers. This appearance is frequently as retinal opacification or whitening rather than simple &quot;paleness&quot;" wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</RadioButton>
-												<RadioButton fx:id="cTigroid" mnemonicParsing="false" text="Tigroid" toggleGroup="$bcolor" GridPane.columnIndex="3">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="striped or mosaic-like appearance of the eye's posterior. This color pattern occurs when the Retinal Pigment Epithelium (RPE) is thin or lacks enough pigment, allowing the darker, underlying choroidal blood vessels to become visible. It typically appears as dark, polygonal areas or stripes separated by the reddish/orange lines of the choroidal vessels." wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</RadioButton>
-											</children>
-										</GridPane>
-										<Label text="Diabetic / ischemic vascular signs" textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font></Label>
-										<GridPane fx:id="vascGrid">
-											<columnConstraints>
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-											</columnConstraints>
-											<rowConstraints>
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-											</rowConstraints>
-											<children>
-												<CheckBox fx:id="anevrismCheck" mnemonicParsing="false" text="Microaneurysms">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="Small, discrete red dots on the surface of the retina. They are typically the earliest visible sign of diabetic retinopathy. They look like tiny, round, or circular red dots. While most are bright red, some may appear yellowish if they have undergone internal changes like hyalinization." wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</CheckBox>
-												<CheckBox fx:id="woolCheck" mnemonicParsing="false" text="Cotton Wool Spots" GridPane.rowIndex="1">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="Also called &quot;soft exudates&quot;,  they present as superficial, whitish-gray patches with fuzzy, ill-defined borders that resemble small tufts of cotton or clouds. Unlike hard exudates, they are opaque and slightly elevated because they occur in the nerve fiber layer, often appearing to obscure underlying retinal vessels. " wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</CheckBox>
-												<CheckBox fx:id="dotCheck" mnemonicParsing="false" text="Dot and Blot hemorrhage" GridPane.rowIndex="2">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="Dark red, circular, or irregular &quot;blobs&quot; located deep within the retinal tissue. Their characteristic rounded shape occurs because the escaped blood is physically compressed by the densely packed neurons of the inner nuclear and outer plexiform layers." wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</CheckBox>
-												<TextField fx:id="anevrismText" promptText="Type the number and quadrant " GridPane.columnIndex="1" />
-												<TextField fx:id="woolText" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="1" />
-												<TextField fx:id="dotText" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="2" />
-												<CheckBox fx:id="neoCheck" mnemonicParsing="false" text="Neovascularisation else where" GridPane.rowIndex="4">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="Appears as delicate, disorganized &quot;fronds&quot; or lacy networks of tiny, irregular blood vessels branching from existing retinal veins. These new vessels are typically found more than one disc diameter away from the optic nerve head and often grow along the surface of the retina or extend into the vitreous." wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</CheckBox>
-												<TextField fx:id="neoText" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="4" />
-												<CheckBox fx:id="flameCheck" mnemonicParsing="false" text="Flame-Shaped Hemorrhages" GridPane.rowIndex="3">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text=" Bright red, splinter-like streaks within the superficial nerve fiber layer (RNFL)." wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</CheckBox>
-												<TextField fx:id="flameText" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="3" />
-      										<CheckBox fx:id="boatCheck" mnemonicParsing="false" text="Boat-shaped/Preretinal hemorrhage" GridPane.rowIndex="5">
-      											<tooltip>
-      												<Tooltip maxWidth="350.0" text="Large, distinct pools of bright red blood trapped between the retina and the vitreous (subhyaloid space). Because the blood is not confined by retinal tissue, gravity causes the red blood cells to settle at the bottom, creating a characteristic straight horizontal top border and a curved, rounded bottom." wrapText="true">
-      													<font>
-      														<Font size="14.0" />
-      													</font>
-      												</Tooltip>
-      											</tooltip>
-      											<cursor>
-      												<Cursor fx:constant="HAND" />
-      											</cursor>
-      										</CheckBox>
-      										<CheckBox fx:id="beadingCheck" mnemonicParsing="false" text="Venous beading / looping" GridPane.rowIndex="6">
-      											<tooltip>
-      												<Tooltip maxWidth="350.0" text="Structural venous deformities that signify severe retinal ischemia and a high risk of progression to proliferative disease. Venous beading is characterized by focal, irregular areas of dilation and narrowing, giving the vessel a &quot;string of sausages&quot; or beaded appearance, while venous looping occurs when a vein deviates into a sharp, omega-shaped or circular turn." wrapText="true">
-      													<font>
-      														<Font size="14.0" />
-      													</font>
-      												</Tooltip>
-      											</tooltip>
-      											<cursor>
-      												<Cursor fx:constant="HAND" />
-      											</cursor>
-      										</CheckBox>
-      										<CheckBox fx:id="irmaCheck" mnemonicParsing="false" text="IRMA" GridPane.rowIndex="7">
-      											<tooltip>
-      												<Tooltip maxWidth="350.0" text="Fine, tortuous, &quot;wiry&quot; red lines that form a complex, lacy network within the retinal tissue. These vessels are typically found in the mid-periphery, often adjacent to areas of capillary non-perfusion or near cotton wool spots, acting as intraretinal shunts. Unlike the delicate &quot;fronds&quot; of neovascularization, IRMA vessels have sharper, better-defined outlines, are slightly larger in caliber, and are strictly contained within the retina—they do not cross over major retinal vessels or grow into the vitreous." wrapText="true">
-      													<font>
-      														<Font size="14.0" />
-      													</font>
-      												</Tooltip>
-      											</tooltip>
-      											<cursor>
-      												<Cursor fx:constant="HAND" />
-      											</cursor>
-      										</CheckBox>
-                                    <TextField fx:id="neoText1" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                    <TextField fx:id="neoText4" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                                    <TextField fx:id="neoText41" promptText="Type the number and quadrant " GridPane.columnIndex="1" GridPane.rowIndex="7" />
-											</children>
-										</GridPane>
-										<Label text="Others signs" textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font></Label>
-										<GridPane fx:id="embGrid">
-											<columnConstraints>
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-											</columnConstraints>
-											<rowConstraints>
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-											</rowConstraints>
-											<children>
-												<CheckBox fx:id="emboliCheck" mnemonicParsing="false" text="Emboli">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="Small, distinct particles trapped within the retinal arterioles, typically categorized into three main types based on their appearance and source. Cholesterol emboli (Hollenhorst plaques) are the most common and appear as highly refractile, bright yellow or orange crystals usually located at vessel bifurcations; they often originate from carotid artery atherosclerosis. Calcific emboli are dull, chalky white, and larger, typically lodging in major vessels near the optic disc and suggesting a source from calcified heart valves. Platelet-fibrin emboli present as dull, grayish-white, elongated &quot;plugs&quot; that may move through the circulation or appear in &quot;showers,&quot; often associated with mural thrombi in the carotid system or heart." wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</CheckBox>
-												<CheckBox fx:id="infectiousCheck" mnemonicParsing="false" text="Infectious  / inflammatory lesions" GridPane.rowIndex="1">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="Typically present as creamy yellow or whitish patches on the retina, with their appearance varying significantly based on whether the condition is active or chronic. Active Lesions: These appear as creamy, yellowish-white patches with fuzzy, blurred borders due to surrounding retinal edema. They are often accompanied by &quot;vitritis&quot;—inflammatory cells in the vitreous that create a &quot;haze&quot; or &quot;headlight in the fog&quot; effect. Inactive/Healed Lesions: Chronic lesions develop into sharply demarcated scars with distinct borders. These scars often show pigmentation (black clumping) at the edges and areas of &quot;punched-out&quot; atrophy where the underlying choroidal vessels may become visible." wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</CheckBox>
-												<CheckBox fx:id="cnevusCheck" mnemonicParsing="false" text="Choroid nevus" GridPane.rowIndex="2">
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="A flat or minimally elevated, well-defined lesion with a characteristic slate-gray or brown color and feathered borders. Key indicators of a benign, long-standing lesion include the presence of overlying drusen and the absence of symptoms like flashes or vision loss. To differentiate it from a melanoma, clinicians look for &quot;red flag&quot; features such as a thickness greater than 2 mm, the presence of subretinal fluid, or the appearance of orange pigment (lipofuscin) on the surface." wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-												</CheckBox>
-												<TextField fx:id="emboliText" promptText="Type the type of emboli and where it's seen" GridPane.columnIndex="1" />
-												<TextField fx:id="infectiousText" promptText="Type the kind of lesion and quadrant" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-												<TextField fx:id="cvenusText" promptText="Type the quadrant" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-											</children>
-										</GridPane>
-                              <ButtonBar prefHeight="40.0" prefWidth="200.0">
-                                <buttons>
-                                  <Button fx:id="retinaBtn" mnemonicParsing="false" onAction="#saveRetinaResults" text="Save" />
-                                </buttons>
-                              </ButtonBar>
-									</children>
-								</VBox>
-							</content>
-						</Tab>
-						<Tab fx:id="vessels" text="Vessels">
-							<content>
-								<VBox fx:id="vesselBox" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-									<children>
-                              <Label text="Arterial light reflex" textFill="#0ca2e0">
-                                 <tooltip>
-                                    <Tooltip maxWidth="350.0" text="The arterial light reflex (ALR) is the normal reflection of light off the surface of retinal arterioles during fundoscopy. In a healthy eye, the central light streak is thin and bright, usually covering about 1/4 to 1/3 of the total diameter of the vessel." wrapText="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Tooltip>
-                                 </tooltip>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font>
-                              </Label>
-                              <RadioButton fx:id="nLight" mnemonicParsing="false" text="Normal">
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="arterialR" />
-                                 </toggleGroup>
-                              </RadioButton>
-                              <RadioButton fx:id="copperLight" mnemonicParsing="false" text="Copper wiring" toggleGroup="$arterialR">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <tooltip>
-                                    <Tooltip maxWidth="350.0" text="Copper wiring is a clinical finding on fundoscopy where the retinal arterioles take on a burnished, metallic orange-yellow appearance. The normal bright-red color of the arteriole is replaced by a reddish-brown or orange-yellow metallic sheen." wrapText="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Tooltip>
-                                 </tooltip>
-                              </RadioButton>
-                              <RadioButton fx:id="silverLight" mnemonicParsing="false" text="Silver wiring" toggleGroup="$arterialR">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <tooltip>
-                                    <Tooltip maxWidth="350.0" text="Silver wiring - The vessel loses its normal red or orange-yellow color and appears as a solid white or silver cord. The central light reflex, which is thin in healthy vessels and broad/metallic in &quot;copper wiring,&quot; becomes so wide that it covers the entire width of the vessel." wrapText="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Tooltip>
-                                 </tooltip>
-                              </RadioButton>
-										<Label text="Caliber" textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font></Label>
-										<GridPane>
-											<columnConstraints>
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-												<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-											</columnConstraints>
-											<rowConstraints>
-												<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-											</rowConstraints>
-											<children>
-												<Label text="A/V ratio">
-													<cursor>
-														<Cursor fx:constant="HAND" />
-													</cursor>
-													<tooltip>
-														<Tooltip maxWidth="350.0" text="The standard A/V ratio is typically 2:3. This means that a healthy retinal artery is roughly two-thirds the width of its accompanying vein. Arteries appear thinner and lighter in color (bright red), while veins are wider and darker (deep red)" wrapText="true">
-															<font>
-																<Font size="14.0" />
-															</font>
-														</Tooltip>
-													</tooltip>
-												</Label>
-												<TextField fx:id="avRatio" GridPane.columnIndex="1" />
-											</children>
-										</GridPane>
-                              <CheckBox fx:id="aNarrowing" mnemonicParsing="false" text="Arterial narrowing" />
-                              <CheckBox fx:id="vDilation" mnemonicParsing="false" text="Venous dilation" />
-										<Label text="A/V crossings" textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font></Label>
-										<CheckBox fx:id="gunnCheck" mnemonicParsing="false" text="Gunn sign">
-											<cursor>
-												<Cursor fx:constant="HAND" />
-											</cursor>
-											<tooltip>
-												<Tooltip maxWidth="350.0" text="Gunn sign (also known as arteriovenous nicking or nipping) is a hallmark of chronic hypertensive retinopathy. It is characterized by the tapering or apparent narrowing of a retinal vein on either side of the point where it is crossed by a thickened, sclerotic arteriole. This &quot;pinched&quot; appearance occurs because the hardened arterial wall, along with a shared connective tissue sheath, compresses the underlying vein and obscures the blood column within it." wrapText="true">
-													<font>
-														<Font size="14.0" />
-													</font>
-												</Tooltip>
-											</tooltip>
-										</CheckBox>
-										<CheckBox fx:id="salusCheck" mnemonicParsing="false" text="Salus sign">
-											<cursor>
-												<Cursor fx:constant="HAND" />
-											</cursor>
-											<tooltip>
-												<Tooltip maxWidth="350.0" text="Salus's sign is a clinical finding on fundoscopy where a retinal vein is deflected or bent at the point where it is crossed by an artery.  Instead of the vein and artery crossing at an acute angle, the vein is pushed aside, taking on a sharp &quot;S-shaped&quot; or &quot;Z-shaped&quot; curve." wrapText="true">
-													<font>
-														<Font size="14.0" />
-													</font>
-												</Tooltip>
-											</tooltip>
-										</CheckBox>
-										<CheckBox fx:id="bonnetCheck" mnemonicParsing="false" text="Bonnet sign">
-											<cursor>
-												<Cursor fx:constant="HAND" />
-											</cursor>
-											<tooltip>
-												<Tooltip maxWidth="350.0" text="Bonnet’s sign is a clinical finding where a retinal vein appears dilated or &quot;banked&quot; distal to an arteriovenous (A/V) crossing. The vein looks swollen or engorged on the side furthest from the optic disc. It often looks like blood is &quot;pooling&quot; because it cannot easily pass under the compressed crossing point." wrapText="true">
-													<font>
-														<Font size="14.0" />
-													</font>
-												</Tooltip>
-											</tooltip>
-										</CheckBox>
-										<Label text="Others findings" textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="14.0" />
-                                 </font></Label>
-                              <CheckBox fx:id="tortCheck" mnemonicParsing="false" text="Abnormal tortuosity">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <tooltip>
-                                    <Tooltip maxWidth="350.0" text="Abnormal retinal vascular tortuosity refers to an excessive twisting, coiling, or undulating appearance of the retinal arteries or veins on fundoscopy. While some degree of vessel curvature is normal, extreme tortuosity often signals underlying ocular or systemic disease." wrapText="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Tooltip>
-                                 </tooltip>
-                              </CheckBox>
-                              <CheckBox fx:id="sheathCheck" mnemonicParsing="false" text="Sheathing">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <tooltip>
-                                    <Tooltip maxWidth="350.0" text="Sheathing in fundoscopy refers to a white or grayish-white coating that appears to surround the retinal blood vessels. It is generally a sign of either inflammation or advanced vascular sclerosis. Often looks like a &quot;white cuff&quot; or fuzzy &quot;frosting&quot; around the vessel." wrapText="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Tooltip>
-                                 </tooltip>
-                              </CheckBox>
-                              <ButtonBar prefHeight="40.0" prefWidth="200.0">
-                                <buttons>
-                                  <Button fx:id="vesselsBtn" mnemonicParsing="false" onAction="#saveVesselsResults" text="Save" />
-                                </buttons>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </ButtonBar>
-									</children>
-									<padding>
-										<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-									</padding>
-								</VBox>
-							</content>
-						</Tab>
-						<Tab fx:id="periphery" text="Periphery">
-							<content>
-								<VBox fx:id="pBox" prefHeight="200.0" prefWidth="100.0" spacing="7.0">
-									<children>
-										<Label text="Scleral indentation" textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font></Label>
-                              <Label text="Ora serrata " textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <RadioButton fx:id="oraY" mnemonicParsing="false" text="Visible 360">
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="serrata" />
-                                 </toggleGroup>
-                              </RadioButton>
-                              <RadioButton fx:id="oraN" mnemonicParsing="false" text="Limited visibility" toggleGroup="$serrata" />
-                              <Label text="Vitreous base " textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <RadioButton fx:id="vbaseY" mnemonicParsing="false" text="Normal">
-                                 <toggleGroup>
-                                    <ToggleGroup fx:id="vitreousb" />
-                                 </toggleGroup>
-                              </RadioButton>
-                              <RadioButton fx:id="vbaseN" mnemonicParsing="false" text="Abnormal" toggleGroup="$vitreousb" />
-                              <Label text="Benign degeneration" textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <CheckBox fx:id="pavCheck" mnemonicParsing="false" text="Pavingstone" />
-                              <CheckBox fx:id="wwopCheck" mnemonicParsing="false" text="White-without-pressure" />
-                              <Label text="High-risk degenerations" textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <CheckBox fx:id="latticeCheck" mnemonicParsing="false" text="Lattice" />
-                              <CheckBox fx:id="tuftCheck" mnemonicParsing="false" text="Vitreoretinal tuft" />
-                              <CheckBox fx:id="schisisCheck" mnemonicParsing="false" text="Retinoschisis" />
-                              <Label text="Acute lesions" textFill="#0ca2e0">
-                                 <font>
-                                    <Font name="System Bold" size="13.0" />
-                                 </font>
-                              </Label>
-                              <CheckBox fx:id="tearCheck" mnemonicParsing="false" text="Tear" />
-                              <CheckBox fx:id="holeCheck" mnemonicParsing="false" text="Atrophic hole" />
-                              <CheckBox fx:id="detCheck" mnemonicParsing="false" text="Retinal detachment" />
-                              <CheckBox fx:id="pNeoCheck" mnemonicParsing="false" text="Peripheral neovascularization">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                                 <tooltip>
-                                    <Tooltip maxWidth="350.0" text="Growth of fragile, abnormal new blood vessels in the outer edges of the retina, typically in response to ischemia.  Abnormal clusters or networks of new blood vessels growing at the vitreoretinal interface." wrapText="true">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Tooltip>
-                                 </tooltip>
-                                 <VBox.margin>
-                                    <Insets top="20.0" />
-                                 </VBox.margin>
-                              </CheckBox>
-                              <ButtonBar prefHeight="40.0" prefWidth="200.0">
-                                 <buttons>
-                                    <Button fx:id="peripheryBtn" mnemonicParsing="false" onAction="#savePeripheryResults" prefHeight="25.0" prefWidth="185.0" text="Save" />
-                                 </buttons>
-                              </ButtonBar>
-									</children>
-									<padding>
-										<Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
-									</padding>
-								</VBox>
-							</content>
-						</Tab>
-					</tabs>
-				</TabPane>
-			</center>
-			<bottom>
-				<VBox prefHeight="37.0" prefWidth="800.0" style="-fx-background-color: grey;" BorderPane.alignment="CENTER">
-					<children>
-						<GridPane>
-							<columnConstraints>
-								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-								<ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-							</columnConstraints>
-							<rowConstraints>
-								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-							</rowConstraints>
-							<children>
-								<Button fx:id="finishBtn" mnemonicParsing="false" onAction="#finishCompletionBtn" prefHeight="25.0" prefWidth="109.0" text="Finish" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.valignment="CENTER" />
-                        <Button fx:id="changeEyeBtn" mnemonicParsing="false" onAction="#changeEye" prefHeight="25.0" prefWidth="120.0" text="Change Eye" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
-							</children>
-							<VBox.margin>
-								<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-							</VBox.margin>
-						</GridPane>
-					</children>
-					<BorderPane.margin>
-						<Insets />
-					</BorderPane.margin>
-				</VBox>
-			</bottom>
-		</BorderPane>
-	</children>
-</VBox>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </GridPane>
+                     </children>
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                  </VBox>
+               </bottom>
+               <left>
+                  <TreeView fx:id="files" prefHeight="563.0" prefWidth="350.0" style="-fx-background-color: gris;" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets />
+                     </BorderPane.margin>
+                     <padding>
+                        <Insets top="30.0" />
+                     </padding>
+                  </TreeView>
+               </left>
+            </BorderPane>
+         </children>
+      </VBox>
+   </children>
+</StackPane>

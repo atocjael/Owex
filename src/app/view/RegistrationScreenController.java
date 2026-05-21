@@ -535,12 +535,24 @@ public class RegistrationScreenController {
       String consPrices = "";
 
       for(int i = 0; i < array.size(); ++i) {
-         consPrices = consPrices + ((TextField)array.get(i)).getText().trim();
+    	 String price=((TextField)array.get(i)).getText().trim();
+    	 
+    	 price=this.removeSpaceAndDot(price);
+    	 consPrices+=price;
+    	 
          if (i != array.size() - 1) {
-            consPrices = consPrices + "/";
+            consPrices += "/";
          }
       }
 
       return consPrices;
+   }
+   
+   public String removeSpaceAndDot(String str) {
+	   if (str == null) {
+	        return null;
+	    }
+	   
+	    return str.replaceAll("[.\\s]", "");
    }
 }

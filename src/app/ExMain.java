@@ -24,6 +24,7 @@ import app.view.EntryModifierController;
 import app.view.ExamAdderController;
 import app.view.ExamChoserController;
 import app.view.ExamRemoverController;
+import app.view.ExamenConclusionController;
 import app.view.FundusController;
 import app.view.LoginScreenController;
 import app.view.MessageEphemereController;
@@ -75,6 +76,7 @@ public class ExMain extends Application {
    private boolean isOperativePeriodeSet = false;
    private File chosenFile;
    private boolean isSelectedFileNull = false;
+   private FundusController fundusController;
 
    public File getChosenFile() {
       return this.chosenFile;
@@ -186,6 +188,10 @@ public class ExMain extends Application {
 
    public Stage getStagePrincipale() {
       return this.stagePrincipale;
+   }
+   
+   public FundusController getFundusController() {
+	   return this.fundusController;
    }
 
    public void init() {
@@ -739,21 +745,58 @@ public class ExMain extends Application {
 	      loader.setLocation(ExMain.class.getResource("view/Fundus.fxml"));
 
 	      try {
-	         VBox hPane = (VBox)loader.load();
+	         StackPane hPane = (StackPane)loader.load();
 	         Scene hScene = new Scene(hPane);
 	         Stage stage = new Stage();
 	         stage.setScene(hScene);
 	         stage.initOwner(this.stagePrincipale);
 	         stage.setTitle("Owex-R - Fundus Protocol");
 	         FundusController controller= (FundusController)loader.getController();
+	         fundusController=controller;
 	         controller.setMain(this);
 	         controller.setStage(stage);
+	         controller.focusPatientName();
+	         
+	         Screen screen = Screen.getPrimary();
+	         Rectangle2D bounds = screen.getVisualBounds();
+	         stage.setWidth(bounds.getWidth());
+	         stage.setHeight(bounds.getHeight());
+	         stage.setX(bounds.getMinX());
+	         stage.setY(bounds.getMinY());
+	         stage.setMaximized(true);
+	         
+	         stagePrincipale.setIconified(true);
+	         
 	         stage.showAndWait();
+	         
 	      } catch (IOException var6) {
 	         var6.printStackTrace();
 	      }
 
 	   }
+
+public void showExamConclusion() {
+	FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(ExMain.class.getResource("view/ExamConclusion.fxml"));
+
+    try {
+        VBox hPane = (VBox)loader.load();
+        Scene hScene = new Scene(hPane);
+        Stage stage = new Stage();
+        stage.setScene(hScene);
+        stage.initOwner(this.stagePrincipale);
+        stage.setTitle("Owex-R - Conclusion et Recommendations");
+        ExamenConclusionController controller= (ExamenConclusionController )loader.getController();
+        
+        controller.setMain(this);
+        controller.setStage(stage);
+        controller.focusBtn();
+        stage.showAndWait();
+     } catch (IOException var6) {
+        var6.printStackTrace();
+     }
+	
+}
    
    
 }

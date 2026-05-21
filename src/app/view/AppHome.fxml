@@ -37,6 +37,7 @@
                         <MenuItem mnemonicParsing="false" onAction="#deleteAct" text="Delete from server            " />
                         <MenuItem mnemonicParsing="false" onAction="#showExamsOnscreen" text="Add to screen" />
                         <MenuItem mnemonicParsing="false" onAction="#removeExamsFromScreen" text="Remove from screen" />
+                        <MenuItem mnemonicParsing="false" text="Edit" />
                      </items>
                   </Menu>
                   <Menu fx:id="rapports" mnemonicParsing="false" text="Rapports">
@@ -48,8 +49,8 @@
                   </Menu>
                   <Menu fx:id="data" mnemonicParsing="false" text="Data">
                      <items>
-                        <MenuItem mnemonicParsing="false" onAction="#modifyEntry" text="Modify                 " />
-                        <MenuItem mnemonicParsing="false" onAction="#deleteDataEntry" text="Delete                     " />
+                        <MenuItem mnemonicParsing="false" onAction="#modifyEntry" text="Edit data" />
+                        <MenuItem mnemonicParsing="false" onAction="#deleteDataEntry" text="Delete data               " />
                         <MenuItem fx:id="showdouble" mnemonicParsing="false" onAction="#showDoubleEntries" text="Show Double" />
                      </items>
                   </Menu>

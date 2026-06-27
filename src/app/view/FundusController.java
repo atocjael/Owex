@@ -16,6 +16,9 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+import java.util.function.UnaryOperator;
+
+import org.controlsfx.control.CheckComboBox;
 
 import com.spire.doc.Document;
 import com.spire.doc.FileFormat;
@@ -37,6 +40,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
@@ -48,6 +52,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.TreeItem;
@@ -306,7 +311,10 @@ public class FundusController {
     private TextField neoText;
 
     @FXML
-    private ComboBox<String> pGender, fundusIndication;
+    private ComboBox<String> pGender;
+    
+    @FXML
+    private CheckComboBox<String> fundusIndication;
 
     @FXML
     private TextField dotText;
@@ -431,6 +439,15 @@ public class FundusController {
     	Node[] pInfos= {pName, lastName, pAge, saveBtn};
     	Tools.addNavigation(pInfos);
     	
+    	//set patient age to accept only numbers
+    	
+    	UnaryOperator<Change> filter = (change) -> {
+            String text = change.getText();
+            return text.matches("\\+?[0-9]*") ? change : null;
+         };
+         TextFormatter<String> textFormatter = new TextFormatter<String>(filter);
+         pAge.setTextFormatter(textFormatter);
+    	
     	//initialisons les genres et les yeux 
     	pEye.getItems().add("OD");
     	pEye.getItems().add("OS");
@@ -450,8 +467,8 @@ public class FundusController {
 
         });
     	
-    	this.fundusIndication.getItems().addAll(List.of("Exploration","Diabetes", "Arterial Hypertension", "Intracranial Hypertension"));
-    	fundusIndication.getSelectionModel().select(0);
+    	this.fundusIndication.getItems().addAll(List.of("Exploration","Diabetes", "Arterial Hypertension", "Intracranial Hypertension", "BAV"));
+    	fundusIndication.getCheckModel().check(0);
     	
     	this.initializeToggle();
     	
@@ -563,7 +580,12 @@ public class FundusController {
     		pinfo.add(pName.getText().trim());
     		pinfo.add(lastName.getText().trim());
     		pinfo.add(pAge.getText().trim());
-    		pinfo.add(fundusIndication.getSelectionModel().getSelectedItem().trim());
+    		List<String> indications=fundusIndication.getCheckModel().getCheckedItems();
+    		String indics="";
+			for(String str: indications) {
+				indics+=(indics.isBlank())?str:", "+str;
+			}
+    		pinfo.add(indics);
     		pinfo.add(pGender.getSelectionModel().getSelectedItem().trim());
     		pinfo.add(pEye.getSelectionModel().getSelectedItem().trim());
     		
@@ -929,7 +951,7 @@ public class FundusController {
                  boolean deleted=Files.deleteIfExists(Paths.get(filename));
                  
                  if (deleted) {
-                     main.getAppHomeController().populateIolDirectory();
+                	 populateTreeView(files, main.getCreancesPath()+"/PROTOCOLS");
                  } 
              } catch (IOException e) {
                 e.printStackTrace();
@@ -957,6 +979,7 @@ public class FundusController {
     	if(this.isAnyTabCompleted()) {
 			onYes.run();
     	}else {
+    		System.out.println("NOn Completed tabs");
     		 try {
         		 closeWord();
         		 
@@ -964,7 +987,7 @@ public class FundusController {
                  isFileDeleted=true;
                  
                  if (deleted) {
-                     main.getAppHomeController().populateIolDirectory();
+                	 populateTreeView(files, main.getCreancesPath()+"/PROTOCOLS");
                  } 
              } catch (IOException e) {
                 e.printStackTrace();
@@ -1442,10 +1465,13 @@ public class FundusController {
     	if(bool) {
     		System.out.println("---patient-------");
     		properties.addAll(List.of(isPatientInfoSet, isEyeChanged));
-    		TextField [] pInfos= {pName, pAge};
+    		TextField [] pInfos= {pName, pAge, lastName};
     		for(TextField tf : pInfos) {
         		tf.setText("");
         	}
+    		
+    		fundusIndication.getCheckModel().clearChecks();
+    		fundusIndication.getCheckModel().check(0);
     	}
     	
     	//reset booleans 

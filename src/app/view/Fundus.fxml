@@ -23,6 +23,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.CheckComboBox?>
 
 <StackPane fx:id="generalPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="app.view.FundusController">
    <children>
@@ -61,7 +62,7 @@
                                           <TextField fx:id="pAge" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                           <Label text="Eye" GridPane.rowIndex="5" />
                                           <ComboBox fx:id="pEye" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                                          <ComboBox fx:id="fundusIndication" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <CheckComboBox fx:id="fundusIndication" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                                           <Label text="Last name" GridPane.rowIndex="1" />
                                           <TextField fx:id="lastName" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                        </children>

@@ -25,7 +25,9 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.stage.Screen;
@@ -475,4 +477,27 @@ public class Tools {
 			
 		 }
 	 }
+   
+   
+   public static void showAlert(String titre, String info, String type) {
+	   Alert alert = null;
+	   
+	   if(type.equals("info")) {
+		   alert= new Alert(AlertType.INFORMATION);
+	   }else if(type.equals("error")){
+		   alert= new Alert(AlertType.ERROR);
+	   }
+	   
+	   if(alert==null) {
+		   return;
+	   }
+	   
+	   alert.setHeaderText(titre);
+	   alert.setContentText(info);
+	   
+	   alert.showAndWait();
+	  
+   }
+   
+   
 }

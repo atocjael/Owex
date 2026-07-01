@@ -425,32 +425,33 @@ public class FundusController {
     }
     
     public void initialize() {
-    	final List<String> TOUTES_LES_IMAGES = List.of(
-       	     "alphabetazone.png", "alphabetazone2.png", "artnarrow.jfif", "atrophichole.jpg", 
-       	     "atrophichole2.JPG", "baring.JPG", "baring2.jfif", "bayoneting.jpg", "bayoneting2.jpg", 
-       	     "coper.jpg", "coper2.jpg", "cottonwool.jpg", "cottonwool2.jpg", "cottonwool3.jfif", 
-       	     "cottonwool4.jfif", "cutdrusen.jpg", "cutdrusen2.jpg", "dischemorrhage.jpeg", 
-       	     "dischemorrhage2.png", "discneovas.jpg", "dotblot.jpg", "discneovas2.jpg", 
-       	     "dotblot2.jfif", "dotsign.jpg", "dotsign2.jpg", "emboli.jfif", "emboli2.jfif", 
-       	     "flamehem.webp", "flamehem2.jfif", "flamehem3.jfif", "ftmh.jpg", "geoatrophy.png", 
-       	     "gunn.JPG", "gunn2.jfif", "harddrusen.jpg", "harddrusen2.jpg", "hardex.JPG", 
-       	     "hardex2.jfif", "hardex3.webp", "haze2.jfif", "hazy.jfif", "inflamatori.jfif", 
-       	     "inflamatori2.jfif", "inflamatori4.jfif", "inflammatori3.jfif", "irma.jfif", 
-       	     "irma2.jfif", "irma3.jfif", "lamh.jfif", "lattice.jfif", "macnaevus.JPG", 
-       	     "microa.jfif", "naevus.webp", "microa2.png", "microa3.jpg", "nasalshift.JPG", 
-       	     "ndprfinding.jpg", "notching.gif", "notching2.jfif", "pale.jfif", "pale2.jfif", 
-       	     "pale3.jfif", "pavingstone.jfif", "ped.avif", "ped2.jfif", "peddrus.jfif", 
-       	     "pedfibro.jfif", "perneov.jfif", "perneov3.jpg", "pigclump.jpg", "pigclump2.jfif", 
-       	     "preret.jfif", "pretret2.jfif", "retdet.jfif", "retdet2.jfif", "retinoschisis.jfif", 
-       	     "retinoschisis2.jfif", "retinoschisis3.jfif", "rfnldefect.jpg", "rfnldefect2.png", 
-       	     "rfnldefect3.jpeg", "salus.jpg", "salus2.jfif", "serousdet.jpg", "serousdet2.jpg", 
-       	     "sheathing.jfif", "sheathing2.jfif", "silver.jpg", "silver2.jpg", "softdrus.jpg", 
-       	     "softdrusen2.webp", "softdrusen3.jpg", "softdrusen4.jpg", "subret6.jpg", 
-       	     "subrethem.jfif", "subrethem2.jfif", "subrethem3.jfif", "tear.jfif", "tear3.jfif", 
-       	     "tear2.jfif", "tigroid.jfif", "tigroid2.webp", "tuft.jpg", "turtuo.webp", 
-       	     "turtuo2.jpg", "turtuo3.ppm", "vendil.jfif", "vendil2.JPG", "venloop.jfif", 
-       	     "venloop3.jfif", "venloop2.jfif", "wwop.webp"
-       	 );
+    	 final List<String> TOUTES_LES_IMAGES = List.of(
+    		    "alphabetazone.png", "alphabetazone2.png", "atrophichole.jpg", "atrophichole2.JPG", 
+    		    "baring.JPG", "bayoneting.jpg", "bayoneting2.jpg", "coper.jpg", "coper2.jpg", 
+    		    "cottonwool2.jpg", "cottonwool.jpg", "cutdrusen.jpg", "cutdrusen2.jpg", 
+    		    "dischemorrhage.jpeg", "discneovas.jpg", "dischemorrhage2.png", "ftmh.jpg", 
+    		    "harddrusen2.jpg", "dotsign2.jpg", "discneovas2.jpg", "gunn.JPG", "dotsign.jpg", 
+    		    "harddrusen.jpg", "dotblot.jpg", "geoatrophy.png", "macnaevus.JPG", "microa2.png", 
+    		    "microa3.jpg", "nasalshift.JPG", "ndprfinding.jpg", "perneov3.jpg", "pigclump.jpg", 
+    		    "rfnldefect.jpg", "rfnldefect2.png", "rfnldefect3.jpeg", "salus.jpg", "serousdet.jpg", 
+    		    "serousdet2.jpg", "silver.jpg", "silver2.jpg", "softdrus.jpg", "softdrusen3.jpg", 
+    		    "softdrusen4.jpg", "subret6.jpg", "tuft.jpg", "turtuo2.jpg", "vendil2.JPG", 
+    		    "artnarrow.jpg", "flamehem3.jpg", "emboli.jpg", "cottonwool3.jpg", "baring2.jpg", 
+    		    "venloop3.jpg", "hardex2.jpg", "inflamatori.jpg", "hardex.JPG", "irma3.jpg", 
+    		    "notching2.jpg", "microa.jpg", "pale.jpg", "pale2.jpg", "pale3.jpg", 
+    		    "pavingstone.jpg", "ped2.jpg", "hazy.jpg", "flamehem2.jpg", "irma2.jpg", 
+    		    "lamh.jpg", "dotblot2.jpg", "pedfibro.jpg", "preret.jpg", "haze2.jpg", 
+    		    "perneov.jpg", "lattice.jpg", "cottonwool4.jpg", "inflammatori3.jpg", 
+    		    "retinoschisis.jpg", "inflamatori2.jpg", "retdet.jpg", "peddrus.jpg", 
+    		    "subrethem2.jpg", "tear2.jpg", "retinoschisis3.jpg", "tear.jpg", "tear3.jpg", 
+    		    "sheathing.jpg", "tigroid.jpg", "retdet2.jpg", "vendil.jpg", "irma.jpg", 
+    		    "gunn2.jpg", "emboli2.jpg", "inflamatori4.jpg", "subrethem.jpg", "sheathing2.jpg", 
+    		    "pretret2.jpg", "pigclump2.jpg", "subrethem3.jpg", "salus2.jpg", "retinoschisis2.jpg", 
+    		    "venloop.jpg", "wwop.jpg", "turtuo3.jpg", "naevus.jpg", "flamehem.jpg", 
+    		    "tigroid2.jpg", "notching.jpg", "ped.jpg", "softdrusen2.jpg", "turtuo.jpg", 
+    		    "hardex3.jpg", "venloop2.jpg"
+    		);
+
     	//------------------------Info tabs -------------------------
     	//initialisation des valeurs
     	isPatientInfoSet.set(false);
@@ -579,9 +580,6 @@ public class FundusController {
     	         }); 
     	     }
     	 }
-
-    	 
-    	
     }
     
     public void focusPatientName() {
@@ -638,7 +636,8 @@ public class FundusController {
     		
     		showIndicator();
     	}else {
-    		System.out.println("Complete all info");
+    		Tools.showAlert("Incomplete patient information", "Please, complete all patient's info before saving!", "error");
+    		//System.out.println("Complete all info");
     	}
     	//enregistrer 
     }
@@ -681,7 +680,7 @@ public class FundusController {
     		
     		showIndicator();
     	}else {
-    		System.out.println("Complete disc size, margins, rim color and C/D ratio It's mandatory");
+    		Tools.showAlert("ONH minimum results missing", "Complete disc size, margins, rim color and C/D ratio to save ONH exam results!", "error");
     	}
     }
     
@@ -720,7 +719,7 @@ public class FundusController {
     		
     		
     	}else {
-    		System.out.println("It's mandatory to complete reflex - profile - ILm and PVD states");
+    		Tools.showAlert("Macula minimum results missing", "It's mandatory to complete reflex - profile - ILm and PVD states to save Macula exam results!", "error");
     	}
     }
     
@@ -882,7 +881,8 @@ public class FundusController {
     		}
     		
     	}else {
-    		System.out.println("Infos not yet registered - change it manually");
+    		Tools.showAlert("Eye not registered", "Info abour the first is not yet registered - change it manually", "info");
+    		
     	}
     }
     
@@ -1005,7 +1005,8 @@ public class FundusController {
     	if(this.isAnyTabCompleted()) {
 			onYes.run();
     	}else {
-    		System.out.println("NOn Completed tabs");
+    		Tools.showAlert("File deletion message", "As no tab was completed for this eye\nThe corresponding "
+    				+ "file will be deleted", "info");
     		 try {
         		 closeWord();
         		 
@@ -1173,7 +1174,7 @@ public class FundusController {
     		String traduit="";
     		
     		switch(str) {
-    		case "small":
+    		case "Small":
     			traduit="petit";
     			break;
     		case "Normal":

@@ -4,11 +4,7 @@ import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -40,7 +36,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
@@ -53,6 +48,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
+import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.Tooltip;
 import javafx.scene.control.TreeItem;
@@ -429,6 +425,32 @@ public class FundusController {
     }
     
     public void initialize() {
+    	final List<String> TOUTES_LES_IMAGES = List.of(
+       	     "alphabetazone.png", "alphabetazone2.png", "artnarrow.jfif", "atrophichole.jpg", 
+       	     "atrophichole2.JPG", "baring.JPG", "baring2.jfif", "bayoneting.jpg", "bayoneting2.jpg", 
+       	     "coper.jpg", "coper2.jpg", "cottonwool.jpg", "cottonwool2.jpg", "cottonwool3.jfif", 
+       	     "cottonwool4.jfif", "cutdrusen.jpg", "cutdrusen2.jpg", "dischemorrhage.jpeg", 
+       	     "dischemorrhage2.png", "discneovas.jpg", "dotblot.jpg", "discneovas2.jpg", 
+       	     "dotblot2.jfif", "dotsign.jpg", "dotsign2.jpg", "emboli.jfif", "emboli2.jfif", 
+       	     "flamehem.webp", "flamehem2.jfif", "flamehem3.jfif", "ftmh.jpg", "geoatrophy.png", 
+       	     "gunn.JPG", "gunn2.jfif", "harddrusen.jpg", "harddrusen2.jpg", "hardex.JPG", 
+       	     "hardex2.jfif", "hardex3.webp", "haze2.jfif", "hazy.jfif", "inflamatori.jfif", 
+       	     "inflamatori2.jfif", "inflamatori4.jfif", "inflammatori3.jfif", "irma.jfif", 
+       	     "irma2.jfif", "irma3.jfif", "lamh.jfif", "lattice.jfif", "macnaevus.JPG", 
+       	     "microa.jfif", "naevus.webp", "microa2.png", "microa3.jpg", "nasalshift.JPG", 
+       	     "ndprfinding.jpg", "notching.gif", "notching2.jfif", "pale.jfif", "pale2.jfif", 
+       	     "pale3.jfif", "pavingstone.jfif", "ped.avif", "ped2.jfif", "peddrus.jfif", 
+       	     "pedfibro.jfif", "perneov.jfif", "perneov3.jpg", "pigclump.jpg", "pigclump2.jfif", 
+       	     "preret.jfif", "pretret2.jfif", "retdet.jfif", "retdet2.jfif", "retinoschisis.jfif", 
+       	     "retinoschisis2.jfif", "retinoschisis3.jfif", "rfnldefect.jpg", "rfnldefect2.png", 
+       	     "rfnldefect3.jpeg", "salus.jpg", "salus2.jfif", "serousdet.jpg", "serousdet2.jpg", 
+       	     "sheathing.jfif", "sheathing2.jfif", "silver.jpg", "silver2.jpg", "softdrus.jpg", 
+       	     "softdrusen2.webp", "softdrusen3.jpg", "softdrusen4.jpg", "subret6.jpg", 
+       	     "subrethem.jfif", "subrethem2.jfif", "subrethem3.jfif", "tear.jfif", "tear3.jfif", 
+       	     "tear2.jfif", "tigroid.jfif", "tigroid2.webp", "tuft.jpg", "turtuo.webp", 
+       	     "turtuo2.jpg", "turtuo3.ppm", "vendil.jfif", "vendil2.JPG", "venloop.jfif", 
+       	     "venloop3.jfif", "venloop2.jfif", "wwop.webp"
+       	 );
     	//------------------------Info tabs -------------------------
     	//initialisation des valeurs
     	isPatientInfoSet.set(false);
@@ -528,33 +550,40 @@ public class FundusController {
     	 
     	 checks.addAll(getChecksFromBox(maculaChecks));
     	 checks.addAll(getChecksFromBox(discOtherSigns));
-    	  for(CheckBox check: checks) {
-    		  if(check!=null) {
-        		  check.setOnMouseClicked((e)->{
-        			  Tooltip tool=check.getTooltip();
-        			  String tip=(tool==null)?"":tool.getText();
-        			  
-        			  if(e.getClickCount()==2) {
-        				 try {
-        					 URL dossierURL = getClass().getResource("/app/fundusImage");
-        					 String dossierPath = Paths.get(dossierURL.toURI()).toFile().getAbsolutePath();
-        					 
-        					 List<String> list=this.chercherFichiers(dossierPath, this.chooseCheckPhoto(check.getText().trim()));
-        					 showGallery(list, check.getText().trim(), tip);
-        					 
-    					} catch (IOException | URISyntaxException e1) {
-    						// TODO Auto-generated catch block
-    						e1.printStackTrace();
-    					}
-        			  }
-        			  
-        		  }); 
-    		  }
-    		  
-    	  }
+    	  
+    	 for (CheckBox check : checks) {
+    	     if (check != null) {
+    	         check.setOnMouseClicked((e) -> {
+    	             Tooltip tool = check.getTooltip();
+    	             String tip = (tool == null) ? "" : tool.getText();
+    	             
+    	             if (e.getClickCount() == 2) {
+    	                 // On récupère le mot-clé (ex: "cottonwool")
+    	                 String termeRecherche = this.chooseCheckPhoto(check.getText().trim());
+    	                 
+    	                 List<String> list = new ArrayList<>();
+    	                 if (termeRecherche != null && !termeRecherche.isBlank()) {
+    	                     String filtre = termeRecherche.toLowerCase();
+    	                     
+    	                     // Filtrage ultra-rapide en mémoire (Compatible IDE et .exe)
+    	                     for (String nomFichier : TOUTES_LES_IMAGES) {
+    	                         if (nomFichier.toLowerCase().contains(filtre)) {
+    	                             list.add(nomFichier);
+    	                         }
+    	                     }
+    	                 }
+    	                 
+    	                 // Envoi de la liste des noms trouvés à votre galerie
+    	                 showGallery(list, check.getText().trim(), tip);
+    	             }
+    	         }); 
+    	     }
+    	 }
+
+    	 
     	
     }
-   
+    
     public void focusPatientName() {
     	pName.requestFocus();
     }
@@ -613,9 +642,6 @@ public class FundusController {
     	}
     	//enregistrer 
     }
-    
-   
-    
     
     
     @FXML
@@ -1646,88 +1672,73 @@ public class FundusController {
         this.populateTreeView(files, main.getCreancesPath()+"/PROTOCOLS");
      }
      
-     public  void showGallery(List<String> imagePaths, String lesion, String tooltip) {
-         Stage stage = new Stage();
-         stage.initModality(Modality.APPLICATION_MODAL);
-         
-         stage.setTitle("Images pour "+lesion +"(" + imagePaths.size() + ")");
-
-         // 1. Le conteneur d'images (FlowPane)
-         // Les images s'alignent horizontalement et passent à la ligne
-         FlowPane flowPane = new FlowPane();
-         flowPane.setHgap(10); // Espace horizontal entre les images
-         flowPane.setVgap(10); // Espace vertical
-         flowPane.setPrefWrapLength(600); // Largeur avant de passer à la ligne
-
-         // 2. Boucle pour ajouter chaque image
-         if(imagePaths.size()!=1 || !imagePaths.get(0).isBlank()) {
-        	 if(!tooltip.isBlank()) {
-					Label lab= new Label(lesion+" - "+tooltip);
-					lab.setPadding(new Insets(10.0));
-					lab.setWrapText(true);
-					lab.setPrefWidth(580);
-					lab.setMaxWidth(580);
-					flowPane.getChildren().add(lab);
-				}
-         }
-         
-         for (String path : imagePaths) {
-			try {
-				if(!path.isBlank()) {
-					Image img = new Image(getClass().getResourceAsStream("../fundusImage/"+path));
-					ImageView iv = new ImageView(img);
-		            
-		             // On définit une largeur standard pour toutes (ex: 150px)
-		             iv.setFitWidth(250);
-		             iv.setPreserveRatio(true);
-		             iv.setSmooth(true);
-		             
-		             flowPane.getChildren().add(iv);
-				}else {
-					Label lab= new Label("Aucune image n'a été trouvée pour "+lesion);
-					lab.setPadding(new Insets(10.0));
-					flowPane.getChildren().add(lab);
-				}
-				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-             
-         }
-
-         // 3. ScrollPane au cas où il y aurait beaucoup d'images
-         ScrollPane scrollPane = new ScrollPane(flowPane);
-         scrollPane.setFitToWidth(true);
-         scrollPane.setPrefSize(600, 400);
-
-         Scene scene = new Scene(scrollPane);
-         stage.setScene(scene);
-         stage.show();
-     }
-     
-     public List<String> chercherFichiers(String dossierPath, String nomRecherche) throws IOException {
-    	 
-    	    List<String> resultats = new ArrayList<>();
-    	    Path folder = Paths.get(dossierPath);
+     public void showGallery(List<String> imagePaths, String lesion, String tooltip) {
+    	    Stage stage = new Stage();
+    	    stage.initModality(Modality.APPLICATION_MODAL);
     	    
+    	    stage.setTitle("Images pour " + lesion + " (" + imagePaths.size() + ")");
 
-    	    // Le "glob" permet d'utiliser des jokers comme *
-    	    // Exemple : "*rapport*" trouvera tous les fichiers contenant "rapport"
-    	    if(!nomRecherche.isBlank()) {
-    	    	try (DirectoryStream<Path> stream = Files.newDirectoryStream(folder, "*" + nomRecherche + "*")) {
-        	        for (Path entry : stream) {
-        	            resultats.add(entry.getFileName().toString());
-        	        }
-        	    }
-    	    }else {
-    	    	resultats.add("");
+    	    FlowPane flowPane = new FlowPane();
+    	    flowPane.setHgap(10);
+    	    flowPane.setVgap(10);
+    	    flowPane.setPrefWrapLength(600);
+
+    	    if (imagePaths.size() != 1 || !imagePaths.get(0).isBlank()) {
+    	        if (!tooltip.isBlank()) {
+    	            Label lab = new Label(lesion + " - " + tooltip);
+    	            lab.setPadding(new Insets(10.0));
+    	            lab.setWrapText(true);
+    	            lab.setPrefWidth(580);
+    	            lab.setMaxWidth(580);
+    	            flowPane.getChildren().add(lab);
+    	        }
     	    }
     	    
-    	    return resultats;
-     }
+    	    for (String path : imagePaths) {
+    	        try {
+    	            if (path != null && !path.isBlank()) {
+    	                // 1. Force forward slashes for internal resources
+    	                String cleanPath = path.replace("\\", "/");
+    	                
+    	                // 2. Use an absolute path from the root of the resources directory
+    	                InputStream stream = getClass().getResourceAsStream("/app/fundusImage/" + cleanPath);
+    	                
+    	                if (stream != null) {
+    	                    Image img = new Image(stream);
+    	                    ImageView iv = new ImageView(img);
+    	                    
+    	                    iv.setFitWidth(250);
+    	                    iv.setPreserveRatio(true);
+    	                    iv.setSmooth(true);
+    	                    
+    	                    flowPane.getChildren().add(iv);
+    	                } else {
+    	                    // Handle missing file inside the resource folder safely
+    	                    Label errorLab = new Label("Fichier introuvable: " + cleanPath);
+    	                    flowPane.getChildren().add(errorLab);
+    	                }
+    	            } else {
+    	                Label lab = new Label("Aucune image n'a été trouvée pour " + lesion);
+    	                lab.setPadding(new Insets(10.0));
+    	                flowPane.getChildren().add(lab);
+    	            }
+    	            
+    	        } catch (Exception e) {
+    	            e.printStackTrace();
+    	        }
+    	    }
+
+    	    ScrollPane scrollPane = new ScrollPane(flowPane);
+    	    scrollPane.setFitToWidth(true);
+    	    scrollPane.setPrefSize(600, 400);
+
+    	    Scene scene = new Scene(scrollPane);
+    	    stage.setScene(scene);
+    	    stage.show();
+    	}
      
      public String chooseCheckPhoto(String checkText) {
+    	 //retourne le nom de la photo correspondant au check double clique 
     	 String[] checkS= {"Defects of RFNL", "Undermining of vessels", "Baring of vessels", "Nasal displacement", "Bayoneting sign", "Laminar dot sign", "Beta zone", "Alpha zone", "Disc hemorrhage", "ISNT Rule violation", "Notching", "Neovascularisation on the disc","Cystoid spaces", "Serous Retinal Detachment", "Pigment Epithelial Detachment", "Hard drusens", "Soft drusens", "Cuticular drusens", "Hard Exudates", "Geographic atrophy", "Pigment clumping", "Macular Nevus", "Subretinal Hemorrhage", "Full thickness macular hole", "Lamellar Hole", "Arterial narrowing", "Venous dilation", "Gunn sign", "Salus sign", "Bonnet sign", "Abnormal tortuosity", "Sheathing", "Pavingstone", "White-without-pressure", "Lattice", "Vitreoretinal tuft", "Retinoschisis", "Tear", "Atrophic hole", "Retinal detachment", "Peripheral neovascularization","Microaneurysms", "Cotton Wool Spots", "Dot and Blot hemorrhage", "Flame-Shaped Hemorrhages", "Neovascularisation else where", "Boat-shaped/Preretinal hemorrhage", "Venous beading / looping", "IRMA", "Emboli", "Infectious / inflammatory lesions", "Choroid nevus"};
     	 String[] checkP= {"rfnldefect","","baring","nasalshift","bayoneting","dotsign","alphabetazone","alphabetazone","dischemorrhage","","notching","discneovas","","serousdet","ped","harddrusen","softdrusen","cutdrusen","hardex","geoatrophy","pigclump","macnaevus","subrethem","ftmh","lamh","artnarrow","vendil","gunn","salus","","turtuo","sheathing","pavingstone", "wwop", "lattice","tuft","retinoschisis","tear","atrophichole","retdet","perneov","microa","cottonwool","dotblot","flamehem","perneov","preret","venloop","irma","emboli","inflamatori","naevus"};
     	 

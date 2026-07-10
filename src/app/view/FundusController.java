@@ -425,31 +425,8 @@ public class FundusController {
     }
     
     public void initialize() {
-    	 final List<String> TOUTES_LES_IMAGES = List.of(
-    		    "alphabetazone.png", "alphabetazone2.png", "atrophichole.jpg", "atrophichole2.JPG", 
-    		    "baring.JPG", "bayoneting.jpg", "bayoneting2.jpg", "coper.jpg", "coper2.jpg", 
-    		    "cottonwool2.jpg", "cottonwool.jpg", "cutdrusen.jpg", "cutdrusen2.jpg", 
-    		    "dischemorrhage.jpeg", "discneovas.jpg", "dischemorrhage2.png", "ftmh.jpg", 
-    		    "harddrusen2.jpg", "dotsign2.jpg", "discneovas2.jpg", "gunn.JPG", "dotsign.jpg", 
-    		    "harddrusen.jpg", "dotblot.jpg", "geoatrophy.png", "macnaevus.JPG", "microa2.png", 
-    		    "microa3.jpg", "nasalshift.JPG", "ndprfinding.jpg", "perneov3.jpg", "pigclump.jpg", 
-    		    "rfnldefect.jpg", "rfnldefect2.png", "rfnldefect3.jpeg", "salus.jpg", "serousdet.jpg", 
-    		    "serousdet2.jpg", "silver.jpg", "silver2.jpg", "softdrus.jpg", "softdrusen3.jpg", 
-    		    "softdrusen4.jpg", "subret6.jpg", "tuft.jpg", "turtuo2.jpg", "vendil2.JPG", 
-    		    "artnarrow.jpg", "flamehem3.jpg", "emboli.jpg", "cottonwool3.jpg", "baring2.jpg", 
-    		    "venloop3.jpg", "hardex2.jpg", "inflamatori.jpg", "hardex.JPG", "irma3.jpg", 
-    		    "notching2.jpg", "microa.jpg", "pale.jpg", "pale2.jpg", "pale3.jpg", 
-    		    "pavingstone.jpg", "ped2.jpg", "hazy.jpg", "flamehem2.jpg", "irma2.jpg", 
-    		    "lamh.jpg", "dotblot2.jpg", "pedfibro.jpg", "preret.jpg", "haze2.jpg", 
-    		    "perneov.jpg", "lattice.jpg", "cottonwool4.jpg", "inflammatori3.jpg", 
-    		    "retinoschisis.jpg", "inflamatori2.jpg", "retdet.jpg", "peddrus.jpg", 
-    		    "subrethem2.jpg", "tear2.jpg", "retinoschisis3.jpg", "tear.jpg", "tear3.jpg", 
-    		    "sheathing.jpg", "tigroid.jpg", "retdet2.jpg", "vendil.jpg", "irma.jpg", 
-    		    "gunn2.jpg", "emboli2.jpg", "inflamatori4.jpg", "subrethem.jpg", "sheathing2.jpg", 
-    		    "pretret2.jpg", "pigclump2.jpg", "subrethem3.jpg", "salus2.jpg", "retinoschisis2.jpg", 
-    		    "venloop.jpg", "wwop.jpg", "turtuo3.jpg", "naevus.jpg", "flamehem.jpg", 
-    		    "tigroid2.jpg", "notching.jpg", "ped.jpg", "softdrusen2.jpg", "turtuo.jpg", 
-    		    "hardex3.jpg", "venloop2.jpg"
+    	 final List<String> TOUTES_LES_IMAGES = List.of( "alphabetazone.png", "alphabetazone2.png", "atrophichole.jpg", "atrophichole2.JPG", "baring.JPG", "bayoneting.jpg", "bayoneting2.jpg", "coper.jpg", "coper2.jpg", "cottonwool.jpg", "cottonwool2.jpg", "cutdrusen.jpg", "cutdrusen2.jpg", "dischemorrhage.jpeg", "dischemorrhage2.png", "discneovas.jpg", "discneovas2.jpg", "dotblot.jpg", "dotsign.jpg", "dotsign2.jpg", "ftmh.jpg", "geoatrophy.png", "gunn.JPG", "harddrusen.jpg", "harddrusen2.jpg", "hardex.JPG", "macnaevus.JPG", "microa2.png", "microa3.jpg", "nasalshift.JPG", "ndprfinding.jpg", "perneov3.jpg", "pigclump.jpg", "rfnldefect.jpg", "rfnldefect2.png", "rfnldefect3.jpeg", "salus.jpg", "serousdet.jpg", "serousdet2.jpg", "silver.jpg", "silver2.jpg", "softdrus.jpg", "softdrusen3.jpg", "softdrusen4.jpg", "subret6.jpg", "tuft.jpg", "turtuo2.jpg", "vendil2.JPG", "artnarrow.jpg", "gunn2.jpg", "flamehem3.jpg", "flamehem2.jpg", "emboli2.jpg", "emboli.jpg", "dotblot2.jpg", "cottonwool4.jpg", "baring2.jpg", "cottonwool3.jpg", "venloop3.jpg", "hardex2.jpg", "haze2.jpg", "hazy.jpg", "inflamatori.jpg", "inflamatori2.jpg", "inflamatori4.jpg", "inflamatori5.jpg", "irma.jpg", "irma2.jpg", "irma3.jpg", "lamh.jpg", "lattice.jpg", "microa.jpg", "notching2.jpg", "pale.jpg", "pale2.jpg", "pale3.jpg", "pavingstone.jpg", "ped2.jpg", "peddrus.jpg", "pedfibro.jpg", "perneov.jpg", "pigclump2.jpg", "preret.jpg", "pretret2.jpg", "retdet.jpg", "retdet2.jpg", "retinoschisis.jpg", "retinoschisis2.jpg", "retinoschisis3.jpg", "salus2.jpg", "sheathing.jpg", "sheathing2.jpg", "subrethem.jpg", "subrethem2.jpg", "subrethem3.jpg", "tear.jpg", "tear2.jpg", "tear3.jpg", "tigroid.jpg", "vendil.jpg", "venloop.jpg", "venloop2.jpg", "wwop.jpg", "flamehem.jpg", "hardex3.jpg", "naevus.jpg", "softdrusen2.jpg", "tigroid2.jpg", "turtuo.jpg", "turtuo3.jpg", "ped.jpg", "notching.jpg", "dotblothardex.jpg", "dotblothardex2.jpg", "dotblothardex3.jpg", "dotblothardex4.jpg", "dotblothardex5.jpg", "drusen.jpg", "fibrom.jpg", "fibrom2.jpg", "fibrom3.jpg", "fibrom4.jpg", "fibromhardex.jpg", "fibromhardexdotblot.jpg", "hardexcottonwoolmicroa.jpg", "hardexcottonwoolmicroa2.jpg", "hardexcottonwoolmicroadiscneovas.jpg", "inflamatori3.jpg", "ftmh2.jpg", "hardex4.jpg", "hardex5.jpg", "hardex6.jpg", "inflamatori6.jpg", "inflamatori7.jpg", "inflamatori9.jpg", "preret4.jpg", "inflamatori8.jpg", "microa4.jpg", "serousdet3.jpg", "flamehem4.jpg"
+
     		);
 
     	//------------------------Info tabs -------------------------
